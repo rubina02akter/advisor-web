@@ -205,15 +205,7 @@ const Navbar = () => {
               {navLinks}
               {user ? (
                 <>
-                  <li>
-                    <Link
-                      to="/dashboard"
-                      onClick={toggleMenu}
-                      className="flex items-center gap-2"
-                    >
-                      <BsGrid3X3Gap /> Dashboard
-                    </Link>
-                  </li>
+                 
                   <li>
                     <Link
                       to="/cart"
