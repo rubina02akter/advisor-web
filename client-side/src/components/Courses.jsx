@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Courses = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [tappedCard, setTappedCard] = useState(null);
 
   const courses = [
     {
@@ -173,9 +174,9 @@ const Courses = () => {
             )
           )}
           <Link to='/courses'>
-          <button className="px-4 py-2 rounded-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 transition-colors">
-            View All
-          </button>
+            <button className="px-4 py-2 rounded-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 transition-colors">
+              View All
+            </button>
           </Link>
         </div>
 
@@ -186,7 +187,9 @@ const Courses = () => {
               className="relative bg-white rounded-xl shadow-md overflow-hidden"
               onHoverStart={() => setHoveredCard(course.id)}
               onHoverEnd={() => setHoveredCard(null)}
+              onClick={() => setTappedCard(tappedCard === course.id ? null : course.id)}
               whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
             >
               {/* Course Image Placeholder */}
               <div className="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center text-white text-5xl">
@@ -234,11 +237,12 @@ const Courses = () => {
                 </div>
               </div>
 
-              {/* Detailed Info (Visible on hover) */}
-              {hoveredCard === course.id && (
+              {/* Detailed Info (Visible on hover or tap) */}
+              {(hoveredCard === course.id || tappedCard === course.id) && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
                   className="absolute inset-0 bg-white p-6 shadow-lg rounded-xl"
                 >
                   <div className="h-full flex flex-col">
@@ -290,7 +294,6 @@ const Courses = () => {
                         <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
                           View Details
                         </button>
-                       
                       </div>
                     </div>
                   </div>

@@ -65,15 +65,20 @@ const Category = () => {
               key={category.id}
               variants={item}
               whileHover={{ scale: 1.03 }}
-              className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md hover:bg-gradient-to-t from-[#043656] to-[#48AEF3] text-gray-800 hover:text-white transition-all duration-300 border border-gray-100 cursor-pointer"
+              whileTap={{ scale: 0.98, backgroundColor: "#043656", color: "white" }} // Mobile tap effect
+              className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md hover:bg-gradient-to-t from-[#043656] to-[#48AEF3] text-gray-800 hover:text-white active:bg-gradient-to-t active:from-[#043656] active:to-[#48AEF3] active:text-white transition-all duration-300 border border-gray-100 cursor-pointer"
             >
               <div className="flex items-start">
-                <span className="text-3xl mr-4">{category.icon}</span>
+                <span className="text-3xl mr-4 hover:text-white active:text-white transition-colors duration-300">
+                  {category.icon}
+                </span>
                 <div>
-                  <h3 className="text-xl font-semibold mb-1">
+                  <h3 className="text-xl font-semibold mb-1 hover:text-white active:text-white transition-colors duration-300">
                     {category.title}
                   </h3>
-                  <p className="">{category.description}</p>
+                  <p className="hover:text-white active:text-white transition-colors duration-300">
+                    {category.description}
+                  </p>
                 </div>
               </div>
             </motion.div>

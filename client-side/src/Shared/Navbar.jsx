@@ -140,7 +140,7 @@ const Navbar = () => {
           </span>
         </NavLink>
       </li>
-      <li key="qn" className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4">
+      <li key="qnx" className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4">
         <NavLink
           to="/contact"
           className={({ isActive }) =>
@@ -216,7 +216,7 @@ const Navbar = () => {
                   alt="user"
                   className="w-10 h-10 rounded-full bg-indigo-100 p-1"
                 />
-                <Link className="btn btn-outline text-black border-indigo-300 hover:bg-indigo-700 hover:border-indigo-700 mr-2" to="/login">
+                <Link className="hidden pt-2 lg:block btn btn-outline text-black font-extrabold bg-[#48aef2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2" to="/login">
                   Join Us
                 </Link>
               </div>
@@ -236,7 +236,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-2/3 sm:w-1/2 bg-transparent bg-opacity-95 backdrop-blur-sm text-white shadow-lg z-50 lg:hidden"
+            className="fixed top-0 right-0 h-full w-2/3 sm:w-1/2 bg-transparent bg-opacity-95 backdrop-blur-lg text-white shadow-lg z-50 lg:hidden"
           >
             <div className="flex justify-between items-center p-4 border-b border-indigo-700">
               <span className="text-xl font-bold text-black">Menu</span>
@@ -265,7 +265,7 @@ const Navbar = () => {
                     to="/login"
                     className={({ isActive }) =>
                       `flex items-center gap-2 w-full text-left ${
-                        isActive ? "text-black font-bold" : "text-blue-800 hover:text-black"
+                        isActive ? "text-black font-bold" : "text-[#22C2F2] hover:text-black"
                       }`
                     }
                   >
