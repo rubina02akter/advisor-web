@@ -1,23 +1,18 @@
-import React, { useState } from "react";
+
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import footerImg from "../../src/assets/4790263_49081.jpg"; // Update with your logo path
-import bg from "../../src/assets/4790263_49081.jpg"; // Update with your background image
+import footerImg from "../../src/assets/images/book-with-green-board-background.jpg"; // Update with your logo path
+import bg from "../../src/assets/images/still-life-books-versus-technology.jpg"; // Update with your background image
 import { Link } from "react-router-dom";
+import SocialButtons from "../components/SocialButtons";
+
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      alert(`Subscribed with: ${email}`);
-      setEmail("");
-    }
-  };
+ 
 
   return (
     <div>
       {/* Main Footer Section */}
+     
       <div
         className="relative bg-cover bg-center py-16 text-white"
         style={{ backgroundImage: `url(${bg})` }}
@@ -82,7 +77,7 @@ const Footer = () => {
           </div>
 
           {/* Contact and Social Media Section */}
-          <div className="flex flex-col items-center lg:items-end gap-6">
+          {/* <div className="flex flex-col items-center lg:items-end gap-6">
             <div className="text-center lg:text-right">
               <h6 className="text-lg font-semibold mb-4">Contact Us</h6>
               <p className="text-sm mb-2">Email: info@advisor-squadxtech.com</p>
@@ -104,7 +99,8 @@ const Footer = () => {
                 <FaInstagram className="text-3xl text-red-400 hover:text-red-300" />
               </a>
             </div>
-          </div>
+          </div> */}
+          <SocialButtons />
         </div>
 
         {/* Footer Bottom Section */}
