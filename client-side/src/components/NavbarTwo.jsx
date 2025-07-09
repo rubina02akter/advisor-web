@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import {
-  FiSearch,
-  FiUser,
   FiChevronDown,
   FiChevronUp,
   FiMenu,
-  FiX,
+  FiSearch,
+  FiX
 } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarTwo = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -247,16 +246,6 @@ export default NavbarTwo;
 
 
 
-import React, { useContext, useState } from "react";
-import { FiMenu, FiX, FiHome, FiLogOut, FiShoppingCart, FiBook } from "react-icons/fi";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import Swal from "sweetalert2";
-import { FaLaptopCode, FaUserTie } from "react-icons/fa";
-import userImg from "../../src/assets/icons8-user-96.png";
-import AuthContext from "../context/AuthContext";
-import { BsGrid3X3Gap } from "react-icons/bs";
-import logo from '../../src/assets/logo/logo.jpg'
 
 
 // const Navbar = () => {

@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { FiMenu, FiX, FiHome, FiLogOut, FiSun, FiMoon } from "react-icons/fi";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useContext, useState } from "react";
+import { FiHome, FiLogOut, FiMenu, FiX } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import userImg from "../../src/assets/icons8-user-96.png";
 import logo from "../../src/assets/logo/logo.jpg";
-import '../../src/CssStyle/navbar.css'
+import '../../src/CssStyle/navbar.css';
 import AuthContext from "../context/AuthContext";
 
 
@@ -167,7 +167,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center p-3">
         <div className="text-xl font-bold flex items-center">
           <img src={logo} alt="" className="w-12 h-12 rounded-full" />
-          <p className="text-[#22C2F2] font-extrabold" >Advisor & <span className="text-[#22C2F2]">SquadXTech</span></p>
+          <p className="text-[#22C2F2] font-old" >Advisors</p>
         </div>
         
         <ul className="hidden lg:flex gap-4">{links}</ul>

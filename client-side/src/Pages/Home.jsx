@@ -1,13 +1,15 @@
-// import Slider from '../components/Slider';
-// import CategorySlider from "../components/CategorySlider";
-// import ServicesSection from "../components/ServicesSection";
+// import Slider from '../components/unused/Slider';
+// import CategorySlider from "../components/unused/CategorySlider";
+// import ServicesSection from "../components/unused/ServicesSection";
 // import CourseCardGrid from "../components/CourseCardGrid";
-import FaqSection from "../components/FaqSection";
-import Category from "../components/Category";
-import Courses from "../components/Courses";
-import ChooseUs from "../components/ChooseUs";
-import MarqueeHeading from "../components/MarqueeHeading";
 import Banner from "../components/Banner";
+import Category from "../components/Category";
+import ChooseUs from "../components/ChooseUs";
+import Courses from "../components/Courses";
+import FaqSection from "../components/FaqSection";
+import MarqueeHeading from "../components/MarqueeHeading";
+// import CategorySec from "../components/unused/CategorySec";
+
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
         <Courses />
         <ChooseUs />
         <FaqSection />
+        {/* <CategorySec></CategorySec> */}
         {/* <Slider /> */}
       </div>
       {/* to do */}

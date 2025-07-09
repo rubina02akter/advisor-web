@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function MarqueeHeading() {
   return (
     <div className='flex gap-4 items-center bg-gradient-to-r from-base-200 to-base-300 p-3 border-b border-primary/10'>
-      <p className='bg-[#D72050] py-1 px-3 text-white font-bold rounded-md shadow-md whitespace-nowrap'>
+      <p className='bg-blue-400 py-1 px-3 text-white font-bold rounded-md shadow-md whitespace-nowrap'>
         LATEST UPDATES
       </p>
       <Marquee 
