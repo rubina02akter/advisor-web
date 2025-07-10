@@ -184,7 +184,7 @@ const Navbar = () => {
                   className="w-10 h-10 rounded-full bg-indigo-100 p-1"
                 />
                 <Link
-                  className="hidden pt-2 lg:block btn btn-outline text-black font-extrabold bg-[#48aef2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2"
+                  className="hidden pt-2 lg:block btn btn-outline text-white font-extrabold bg-gradient-to-l from-[#01041a] via-[#22C3F2] to-[#22C3F2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2"
                   to="/login"
                 >
                  Login
