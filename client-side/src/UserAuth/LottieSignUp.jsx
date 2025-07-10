@@ -13,15 +13,6 @@ const LottieSignUp = () => {
     animationData: animationData,  // Pass the animationData here
   };
 
-  // Control the animation playback
-  const handlePlay = () => {
-    animationRef.current.play();
-  };
-
-  const handleStop = () => {
-    animationRef.current.stop();
-  };
-
   return (
     <div>
       

@@ -5,9 +5,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import userImg from "../../src/assets/icons8-user-96.png";
 import logo from "../../src/assets/logo/logo.jpg";
-import '../../src/CssStyle/navbar.css';
+import "../../src/CssStyle/navbar.css";
 import AuthContext from "../context/AuthContext";
-
 
 const Navbar = () => {
   const { signOutUser, user, loading } = useContext(AuthContext);
@@ -41,55 +40,18 @@ const Navbar = () => {
     );
   }
 
-  // const links = (
-  //   <>
-  //     <li key="home">
-  //       <NavLink
-  //         to="/"
-  //         className={({ isActive }) =>
-  //           `flex items-center gap-2 hover:text-indigo-200 hover:font-extrabold ${
-  //             isActive ? "text-white btn bg-gradient-to-br from-[#04050b] via-[#13134d] to-[#2a1488]" : "text-white btn bg-[#2a1488]"
-  //           }`
-  //         }
-  //       >
-  //         <FiHome /> Home
-  //       </NavLink>
-  //     </li>
-  //     <li key="menu">
-  //       <NavLink
-  //         to="/blog"
-  //         className={({ isActive }) =>
-  //           `flex items-center gap-2 hover:text-indigo-200 ${
-  //             isActive ? "text-white btn bg-gradient-to-br from-[#04050b] via-[#13134d] to-[#2a1488]" : "text-white btn bg-[#2a1488]"
-  //           }`
-  //         }
-  //       >
-  //         Blog
-  //       </NavLink>
-  //     </li>
-  //     <li key="qn">
-  //       <NavLink
-  //         to="/contact"
-  //         className={({ isActive }) =>
-  //           `flex items-center gap-2 hover:text-indigo-200 ${
-  //             isActive ? "text-white btn bg-gradient-to-br from-[#04050b] via-[#13134d] to-[#2a1488]" : "text-white btn bg-[#2a1488]"
-  //           }`
-  //         }
-  //       >
-  //         Contact
-  //       </NavLink>
-  //     </li>
-  //   </>
-  // );
   const links = (
     <>
-      <li key="home" className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4">
+      <li
+        key="home"
+        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+      >
         <NavLink
           to="/"
           className={({ isActive }) =>
             `nav-btn ${
-              isActive 
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]" 
+              isActive
+                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
                 : "text-white bg-[#48aef2]"
             }`
           }
@@ -102,13 +64,16 @@ const Navbar = () => {
           </span>
         </NavLink>
       </li>
-      <li key="menu" className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4">
+      <li
+        key="menu"
+        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+      >
         <NavLink
           to="/courses"
           className={({ isActive }) =>
             `nav-btn ${
-              isActive 
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]" 
+              isActive
+                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
                 : "text-white bg-[#48aef2]"
             }`
           }
@@ -116,18 +81,19 @@ const Navbar = () => {
           <span className="bubble bubble-1"></span>
           <span className="bubble bubble-2"></span>
           <span className="bubble bubble-3"></span>
-          <span className="btn-text">
-           All Courses
-          </span>
+          <span className="btn-text">All Courses</span>
         </NavLink>
       </li>
-      <li key="qn" className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4">
+      <li
+        key="qn"
+        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+      >
         <NavLink
           to="/add-course"
           className={({ isActive }) =>
             `nav-btn ${
-              isActive 
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]" 
+              isActive
+                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
                 : "text-white bg-[#48aef2]"
             }`
           }
@@ -135,18 +101,19 @@ const Navbar = () => {
           <span className="bubble bubble-1"></span>
           <span className="bubble bubble-2"></span>
           <span className="bubble bubble-3"></span>
-          <span className="btn-text">
-            Add Course
-          </span>
+          <span className="btn-text">Add Course</span>
         </NavLink>
       </li>
-      <li key="qnx" className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4">
+      <li
+        key="qnx"
+        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+      >
         <NavLink
           to="/contact"
           className={({ isActive }) =>
             `nav-btn ${
-              isActive 
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]" 
+              isActive
+                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
                 : "text-white bg-[#48aef2]"
             }`
           }
@@ -154,9 +121,7 @@ const Navbar = () => {
           <span className="bubble bubble-1"></span>
           <span className="bubble bubble-2"></span>
           <span className="bubble bubble-3"></span>
-          <span className="btn-text">
-            Contact
-          </span>
+          <span className="btn-text">Contact</span>
         </NavLink>
       </li>
     </>
@@ -167,9 +132,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center p-3">
         <div className="text-xl font-bold flex items-center">
           <img src={logo} alt="" className="w-12 h-12 rounded-full" />
-          <p className="text-[#22C2F2] font-old" >Advisors</p>
+          <p className="text-[#22C2F2] font-old">Advisors</p>
         </div>
-        
+
         <ul className="hidden lg:flex gap-4">{links}</ul>
 
         <div className="flex gap-2">
@@ -197,7 +162,9 @@ const Navbar = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-indigo-800 rounded-box md:w-52 w-32 text-xs"
                 >
-                  <li className="text-center font-extrabold text-indigo-100 underline">{user.displayName}</li>
+                  <li className="text-center font-extrabold text-indigo-100 underline">
+                    {user.displayName}
+                  </li>
                   <li className="mt-2">
                     <button
                       onClick={handleSignOut}
@@ -206,7 +173,6 @@ const Navbar = () => {
                       Logout
                     </button>
                   </li>
-                  
                 </ul>
               </div>
             ) : (
@@ -216,14 +182,20 @@ const Navbar = () => {
                   alt="user"
                   className="w-10 h-10 rounded-full bg-indigo-100 p-1"
                 />
-                <Link className="hidden pt-2 lg:block btn btn-outline text-black font-extrabold bg-[#48aef2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2" to="/login">
+                <Link
+                  className="hidden pt-2 lg:block btn btn-outline text-black font-extrabold bg-[#48aef2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2"
+                  to="/login"
+                >
                   Join Us
                 </Link>
               </div>
             )}
           </div>
 
-          <button className="lg:hidden focus:outline-none text-indigo-100" onClick={toggleMenu}>
+          <button
+            className="lg:hidden focus:outline-none text-indigo-100"
+            onClick={toggleMenu}
+          >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
@@ -240,16 +212,19 @@ const Navbar = () => {
           >
             <div className="flex justify-between items-center p-4 border-b border-indigo-700">
               <span className="text-xl font-bold text-black">Menu</span>
-              <button onClick={toggleMenu} className="text-black hover:text-white">
+              <button
+                onClick={toggleMenu}
+                className="text-black hover:text-white"
+              >
                 <FiX size={24} />
               </button>
             </div>
             <ul className="flex flex-col gap-4 p-6">
-              {React.Children.toArray(links).map(link => (
+              {React.Children.toArray(links).map((link) =>
                 React.cloneElement(link, {
-                  className: `${link.props.className} w-full text-left`
+                  className: `${link.props.className} w-full text-left`,
                 })
-              ))}
+              )}
               {user ? (
                 <li>
                   <button
@@ -265,7 +240,9 @@ const Navbar = () => {
                     to="/login"
                     className={({ isActive }) =>
                       `flex items-center gap-2 w-full text-left ${
-                        isActive ? "text-black font-bold" : "text-[#22C2F2] hover:text-black"
+                        isActive
+                          ? "text-black font-bold"
+                          : "text-[#22C2F2] hover:text-black"
                       }`
                     }
                   >

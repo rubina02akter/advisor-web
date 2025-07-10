@@ -11,9 +11,6 @@ import SocialLogIn from "./SocialLogIn";
 import LottieComponent from "./LottieComponent";
 import AuthContext from "../context/AuthContext";
 
-
-
-
 const LogIn = () => {
   const { signIn } = useContext(AuthContext);
   const [disabled, setDisabled] = useState(true);
