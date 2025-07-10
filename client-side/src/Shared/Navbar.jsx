@@ -44,15 +44,15 @@ const Navbar = () => {
     <>
       <li
         key="home"
-        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+        className=" "
       >
         <NavLink
           to="/"
           className={({ isActive }) =>
             `nav-btn ${
               isActive
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
-                : "text-white bg-[#48aef2]"
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                : "text-white bg-[#22C3F2]"
             }`
           }
         >
@@ -66,15 +66,15 @@ const Navbar = () => {
       </li>
       <li
         key="menu"
-        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+        className=""
       >
         <NavLink
           to="/courses"
           className={({ isActive }) =>
             `nav-btn ${
               isActive
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
-                : "text-white bg-[#48aef2]"
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                : "text-white bg-[#22C3F2]"
             }`
           }
         >
@@ -86,15 +86,15 @@ const Navbar = () => {
       </li>
       <li
         key="qn"
-        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+        className=""
       >
         <NavLink
           to="/add-course"
           className={({ isActive }) =>
             `nav-btn ${
               isActive
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
-                : "text-white bg-[#48aef2]"
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                : "text-white bg-[#22C3F2]"
             }`
           }
         >
@@ -106,15 +106,15 @@ const Navbar = () => {
       </li>
       <li
         key="qnx"
-        className=" border-b-black rounded-r-2xl rounded-b-2xl border-b-4"
+        className=" "
       >
         <NavLink
           to="/contact"
           className={({ isActive }) =>
             `nav-btn ${
               isActive
-                ? "text-white bg-gradient-to-br from-[#04050b] via-[#046eb9] to-[#47abf2]"
-                : "text-white bg-[#48aef2]"
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                : "text-white bg-[#22C3F2]"
             }`
           }
         >
@@ -130,10 +130,11 @@ const Navbar = () => {
   return (
     <nav className="text-white fixed w-full z-50 bg-opacity-90 backdrop-blur-md shadow-lg">
       <div className="container mx-auto flex justify-between items-center p-3">
-        <div className="text-xl font-bold flex items-center">
+        <Link to='/'> <div className="text-xl font-bold flex items-center">
           <img src={logo} alt="" className="w-12 h-12 rounded-full" />
-          <p className="text-[#22C2F2] font-old">Advisors</p>
+         <Link to='/'>  <p className="text-[#22C3F2] font-medium">Advisors</p> </Link>
         </div>
+        </Link>
 
         <ul className="hidden lg:flex gap-4">{links}</ul>
 
@@ -186,7 +187,7 @@ const Navbar = () => {
                   className="hidden pt-2 lg:block btn btn-outline text-black font-extrabold bg-[#48aef2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2"
                   to="/login"
                 >
-                  Join Us
+                 Login
                 </Link>
               </div>
             )}
@@ -208,7 +209,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-2/3 sm:w-1/2 bg-transparent bg-opacity-95 backdrop-blur-lg text-white shadow-lg z-50 lg:hidden"
+            className="fixed top-0 right-0 h-full md:w-1/4  bg-transparent bg-opacity-95 backdrop-blur-lg text-white shadow-lg z-50 lg:hidden"
           >
             <div className="flex justify-between items-center p-4 border-b border-indigo-700">
               <span className="text-xl font-bold text-black">Menu</span>
@@ -246,7 +247,7 @@ const Navbar = () => {
                       }`
                     }
                   >
-                    <FiLogOut /> Join Us
+                    <FiLogOut /> Login
                   </NavLink>
                 </li>
               )}
