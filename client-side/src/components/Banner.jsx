@@ -3,10 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
 
 // Import images
-import bg1 from '../assets/images/book-with-green-board-background.jpg';
-import bg2 from '../assets/images/book-with-green-board-background.jpg';
-import bg3 from '../assets/images/book-with-green-board-background.jpg';
-import bg4 from '../assets/images/book-with-green-board-background.jpg';
+import { default as bg1, default as bg2, default as bg3, default as bg4 } from '../assets/images/book-with-green-board-background.jpg';
 
 const slides = [
   {
@@ -78,5 +75,7 @@ const Banner = () => {
     </Carousel>
   );
 };
+
+// clg
 
 export default Banner;
