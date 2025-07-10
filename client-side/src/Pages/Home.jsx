@@ -8,6 +8,7 @@ import ChooseUs from "../components/ChooseUs";
 import Courses from "../components/Courses";
 import FaqSection from "../components/FaqSection";
 import MarqueeHeading from "../components/MarqueeHeading";
+import Partners from "../components/Partners";
 // import CategorySec from "../components/unused/CategorySec";
 
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Courses />
         <ChooseUs />
         <FaqSection />
+        <Partners></Partners>
         {/* <CategorySec></CategorySec> */}
         {/* <Slider /> */}
       </div>
