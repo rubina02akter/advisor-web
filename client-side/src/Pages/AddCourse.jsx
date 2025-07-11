@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { FaTrashCan } from "react-icons/fa6";
+import { IoAddCircleSharp } from "react-icons/io5";
+import { IoCreate } from "react-icons/io5";
 const AddCourse = () => {
   const initialFormState = {
     title: '',
@@ -189,9 +191,9 @@ const AddCourse = () => {
                   <button
                     type="button"
                     onClick={() => removeFeature(index)}
-                    className="px-3 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="px-3 py-2 bg-rose-700 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 flex justify-center"
                   >
-                    Remove
+                  <FaTrashCan  className='m-1'/> Remove
                   </button>
                 )}
               </div>
@@ -199,9 +201,9 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={addFeature}
-              className="mt-2 px-3 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-2 px-3 py-2 bg-green-800 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 flex"
             >
-              Add Feature
+            <IoAddCircleSharp                                                         className='m-1'/>  Add Feature
             </button>
           </div>
         </div>
@@ -294,10 +296,10 @@ const AddCourse = () => {
             type="submit"
             disabled={isSubmitting}
             className={`flex-1 py-2 px-4 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-              isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+              isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-[#22C3F2] hover:bg-blue-700'
             }`}
           >
-            {isSubmitting ? 'Creating...' : 'Create Course'}
+            {isSubmitting ?  'Creating...' : 'Create Course'}
           </button>
           
           <button

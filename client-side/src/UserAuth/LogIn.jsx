@@ -109,14 +109,14 @@ const LogIn = () => {
                 <input
                   // todo: add disabled
                   disabled={false}
-                  className="btn btn-primary"
+                  className="btn bg-[#22C3F2] text-white"
                   type="submit"
                   value="Login"
                 />
               </div>
             </form>
             <div className="divide-x-0"></div>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center ">
               <SocialLogIn></SocialLogIn>
             </div>
             <p className="text-center p-4">

@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaCheck, FaArrowRight } from "react-icons/fa";
+import image from '../../src/assets/images/course-ban-bg.png'
+import img1 from '../../src/assets/images/corporate-workers-brainstorming-together.jpg';
+import img2 from '../../src/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg';
+
 
 const ChooseUs = () => {
   const features = [
@@ -36,7 +40,7 @@ const ChooseUs = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 w-11/12 mx-auto">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -83,28 +87,32 @@ const ChooseUs = () => {
               ))}
             </motion.div>
 
-            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2] transition-colors">
               More about us
               <FaArrowRight className="ml-2 h-4 w-4" />
             </button>
           </motion.div>
 
           {/* Right Column - Image Placeholder */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-blue-400 to-blue-800 rounded-xl shadow-lg overflow-hidden h-96 flex items-center justify-center"
-          >
-            <div className="text-white text-center p-8">
-              <div className="text-6xl mb-4">🎓</div>
-              <h3 className="text-2xl font-bold mb-2">Our Learning Platform</h3>
-              <p className="opacity-90">
-                Interactive courses with practical knowledge
-              </p>
-            </div>
-          </motion.div>
+         
+         {/* <div>
+          <img src={image} alt="" className="rounded-bl-3xl rounded-tr-3xl" />
+         </div> */}
+          <div className="flex-1 ml-42">
+       <motion.img
+          src={img1}
+          // animate={{y:[50, 100, 50]}} 
+          transition={{duration: 10 ,repeat:Infinity}}
+          className="relative w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+        />
+       <motion.img
+          src={img2}
+          // animate={{x:[100, 150, 100]}}
+          transition={{duration: 5 ,repeat:Infinity}}
+          className="-mt-12 -ml-24 w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+        />
+       </div>
+
         </div>
       </div>
     </section>

@@ -145,7 +145,7 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-6">
               <input
-                className="btn btn-primary"
+                className="btn bg-[#22C3F2] text-white"
                 type="submit"
                 value="Sign Up"
               />
@@ -156,7 +156,7 @@ const SignUp = () => {
             <SocialLogIn></SocialLogIn>
             <p className="p-6">
               Already have an account?{" "}
-              <Link to="/login" className="text-green-900 underline">
+              <Link to="/login" className=" text-rose-700 underline">
                 Login
               </Link>
             </p>

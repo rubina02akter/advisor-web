@@ -1,9 +1,10 @@
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 // import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+
 
 const SocialLogIn = () => {
   const { signInWithGoogle } = useContext(AuthContext);
@@ -28,9 +29,9 @@ const SocialLogIn = () => {
     <div className="flex">
       <div>__________</div>
       <div>
-        <button onClick={handleGoogleSignIn} className="btn bg-rose-600 text-white">
-          <FaGoogle></FaGoogle>
-          Google
+        <button onClick={handleGoogleSignIn} className="btn bg-white">
+       Sign in with <FcGoogle />
+        
         </button>
       </div>
       <div>_________</div>
