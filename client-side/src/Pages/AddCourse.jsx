@@ -1,314 +1,228 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { FaTrashCan } from "react-icons/fa6";
-import { IoAddCircleSharp } from "react-icons/io5";
-import { IoCreate } from "react-icons/io5";
+import { useForm, useFieldArray } from "react-hook-form";
+import { FaPlusCircle, FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../src/Hooks/useAxiosPublic";
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
 const AddCourse = () => {
-  const initialFormState = {
-    title: '',
-    subtitle: '',
-    level: '',
-    description: '',
-    features: [''],
-    lessons: '',
-    originalPrice: '',
-    discountedPrice: '',
-    instructor: '',
-    category: '',
-    icon: ''
-  };
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      features: [{ value: "" }],
+      team: [{ name: "" }],
+    },
+  });
 
-  const [formData, setFormData] = useState(initialFormState);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const { fields: featureFields, append: appendFeature, remove: removeFeature } = useFieldArray({
+    control,
+    name: "features",
+  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const { fields: teamFields, append: appendTeam, remove: removeTeam } = useFieldArray({
+    control,
+    name: "team",
+  });
 
-  const handleFeatureChange = (index, value) => {
-    const newFeatures = [...formData.features];
-    newFeatures[index] = value;
-    setFormData(prev => ({
-      ...prev,
-      features: newFeatures
-    }));
-  };
+  const axiosPublic = useAxiosPublic();
 
-  const addFeature = () => {
-    setFormData(prev => ({
-      ...prev,
-      features: [...prev.features, '']
-    }));
-  };
+  const onSubmit = async (data) => {
+    let imageUrl = "";
+    if (data.image && data.image.length > 0) {
+      const imageFile = new FormData();
+      imageFile.append("image", data.image[0]);
 
-  const removeFeature = (index) => {
-    const newFeatures = formData.features.filter((_, i) => i !== index);
-    setFormData(prev => ({
-      ...prev,
-      features: newFeatures
-    }));
-  };
+      try {
+        const imageResponse = await axiosPublic.post(image_hosting_api, imageFile);
+        if (imageResponse.data.success) {
+          imageUrl = imageResponse.data.data.display_url;
+        }
+      } catch (error) {
+        console.error("Image upload failed:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Image Upload Failed",
+          text: "Failed to upload course image. Please try again.",
+        });
+        return;
+      }
+    }
 
-  const resetForm = () => {
-    setFormData(initialFormState);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-    setSuccess(false);
+    const courseData = {
+      title: data.title,
+      subtitle: data.subtitle,
+      level: data.level,
+      description: data.description,
+      features: data.features.map((f) => f.value).filter((val) => val.trim() !== ""),
+      team: data.team.map((t) => t.name).filter((name) => name.trim() !== ""),
+      lessons: parseInt(data.lessons),
+      originalPrice: parseFloat(data.originalPrice),
+      discountedPrice: parseFloat(data.discountedPrice),
+      instructor: data.instructor,
+      category: data.category,
+      image: imageUrl,
+      status: "active",
+    };
 
     try {
-      // Validate at least one feature is not empty
-      if (formData.features.some(f => f.trim() === '')) {
-        throw new Error('All features must be filled out');
+      const response = await axiosPublic.post("/courses", courseData);
+
+      if (response.data.insertedId) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${data.title} has been added successfully!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
-
-      const payload = {
-        ...formData,
-        lessons: Number(formData.lessons),
-        originalPrice: Number(formData.originalPrice),
-        discountedPrice: Number(formData.discountedPrice),
-        features: formData.features.filter(f => f.trim() !== '') // Remove empty features
-      };
-
-      const response = await axios.post('http://localhost:4000/courses', payload, {
-        headers: {
-          'Content-Type': 'application/json',
-        }
+    } catch (error) {
+      console.error("Course creation failed:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Course Creation Failed",
+        text: error.response?.data?.message || "Failed to create course. Please try again.",
       });
-
-      console.log('Course created:', response.data);
-      setSuccess(true);
-      resetForm();
-      
-    } catch (err) {
-      console.error('Submission error:', err);
-      setError(
-        err.response?.data?.message || 
-        err.message || 
-        'Failed to create course. Please try again.'
-      );
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Create New Course</h2>
-      
-      {error && (
-        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-          {error}
-        </div>
-      )}
-      
-      {success && (
-        <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
-          Course created successfully!
-        </div>
-      )}
+    <div className="w-11/12 mx-auto py-8">
+      <h2 className="text-3xl font-bold text-center mb-8">Add A New Course</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Form fields remain the same as your original */}
-        {/* Title */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {/* Title & Subtitle */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Title */}
+          <div className="form-control">
+            <label className="label"><span className="label-text">Course Title*</span></label>
+            <input type="text" {...register("title", { required: true })} placeholder="Enter title" className="input input-bordered w-full" />
+            {errors.title && <span className="text-red-500 text-sm">Title is required</span>}
+          </div>
+
+          {/* Subtitle */}
+          <div className="form-control">
+            <label className="label"><span className="label-text">Subtitle*</span></label>
+            <input type="text" {...register("subtitle", { required: true })} placeholder="Enter subtitle" className="input input-bordered w-full" />
+            {errors.subtitle && <span className="text-red-500 text-sm">Subtitle is required</span>}
+          </div>
         </div>
 
-        {/* Subtitle */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Subtitle:</label>
-          <input
-            type="text"
-            name="subtitle"
-            value={formData.subtitle}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+        {/* Level & Category */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="form-control">
+            <label className="label"><span className="label-text">Level*</span></label>
+            <select {...register("level", { required: true })} className="select select-bordered w-full">
+              <option value="">Select Level</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            {errors.level && <span className="text-red-500 text-sm">Level is required</span>}
+          </div>
 
-        {/* Level */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Level:</label>
-          <select
-            name="level"
-            value={formData.level}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">Select Level</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
+          <div className="form-control">
+            <label className="label"><span className="label-text">Category*</span></label>
+            <input type="text" {...register("category", { required: true })} placeholder="Enter category" className="input input-bordered w-full" />
+            {errors.category && <span className="text-red-500 text-sm">Category is required</span>}
+          </div>
         </div>
 
         {/* Description */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Description:</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-24"
-          />
+        <div className="form-control">
+          <label className="label"><span className="label-text">Description*</span></label>
+          <textarea {...register("description", { required: true })} className="textarea textarea-bordered w-full h-32" placeholder="Enter course description"></textarea>
+          {errors.description && <span className="text-red-500 text-sm">Description is required</span>}
         </div>
 
-        {/* Features */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Features:</label>
+        {/* Features Section */}
+        <div className="form-control">
+          <label className="label"><span className="label-text">Course Features*</span></label>
           <div className="space-y-2">
-            {formData.features.map((feature, index) => (
-              <div key={index} className="flex gap-2">
-                <input
-                  type="text"
-                  value={feature}
-                  onChange={(e) => handleFeatureChange(index, e.target.value)}
-                  required
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                {formData.features.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeFeature(index)}
-                    className="px-3 py-2 bg-rose-700 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 flex justify-center"
-                  >
-                  <FaTrashCan  className='m-1'/> Remove
+            {featureFields.map((field, index) => (
+              <div key={field.id} className="flex gap-2 items-center">
+                <input type="text" {...register(`features.${index}.value`, { required: true })} placeholder={`Feature ${index + 1}`} className="input input-bordered flex-1" />
+                {index > 0 && (
+                  <button type="button" onClick={() => removeFeature(index)} className="btn btn-error btn-sm">
+                    <FaTrash />
                   </button>
                 )}
               </div>
             ))}
-            <button
-              type="button"
-              onClick={addFeature}
-              className="mt-2 px-3 py-2 bg-green-800 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 flex"
-            >
-            <IoAddCircleSharp                                                         className='m-1'/>  Add Feature
+            <button type="button" onClick={() => appendFeature({ value: "" })} className="btn btn-outline btn-sm mt-2">
+              <FaPlusCircle className="mr-1" /> Add Feature
             </button>
           </div>
         </div>
 
-        {/* Lessons */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Number of Lessons:</label>
-          <input
-            type="number"
-            name="lessons"
-            value={formData.lessons}
-            onChange={handleChange}
-            required
-            min="1"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+        {/* Team Members Section */}
+        <div className="form-control">
+          <label className="label"><span className="label-text">Team Members (optional)</span></label>
+          <div className="space-y-2">
+            {teamFields.map((field, index) => (
+              <div key={field.id} className="flex gap-2 items-center">
+                <input type="text" {...register(`team.${index}.name`)} placeholder={`Team Member ${index + 1}`} className="input input-bordered flex-1" />
+                {index > 0 && (
+                  <button type="button" onClick={() => removeTeam(index)} className="btn btn-error btn-sm">
+                    <FaTrash />
+                  </button>
+                )}
+              </div>
+            ))}
+            <button type="button" onClick={() => appendTeam({ name: "" })} className="btn btn-outline btn-sm mt-2">
+              <FaPlusCircle className="mr-1" /> Add Member
+            </button>
+          </div>
+        </div>
+
+        {/* Lessons & Instructor */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="form-control">
+            <label className="label"><span className="label-text">Number of Lessons*</span></label>
+            <input type="number" {...register("lessons", { required: true, min: 1 })} className="input input-bordered w-full" />
+            {errors.lessons && <span className="text-red-500 text-sm">Enter a valid number</span>}
+          </div>
+
+          <div className="form-control">
+            <label className="label"><span className="label-text">Instructor Name*</span></label>
+            <input type="text" {...register("instructor", { required: true })} className="input input-bordered w-full" />
+            {errors.instructor && <span className="text-red-500 text-sm">Instructor name is required</span>}
+          </div>
         </div>
 
         {/* Prices */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Original Price ($):</label>
-            <input
-              type="number"
-              name="originalPrice"
-              value={formData.originalPrice}
-              onChange={handleChange}
-              required
-              min="0"
-              step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="form-control">
+            <label className="label"><span className="label-text">Original Price ($)*</span></label>
+            <input type="number" step="0.01" {...register("originalPrice", { required: true, min: 0 })} className="input input-bordered w-full" />
+            {errors.originalPrice && <span className="text-red-500 text-sm">Enter a valid price</span>}
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Discounted Price ($):</label>
-            <input
-              type="number"
-              name="discountedPrice"
-              value={formData.discountedPrice}
-              onChange={handleChange}
-              required
-              min="0"
-              step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+
+          <div className="form-control">
+            <label className="label"><span className="label-text">Discounted Price ($)*</span></label>
+            <input type="number" step="0.01" {...register("discountedPrice", { required: true, min: 0 })} className="input input-bordered w-full" />
+            {errors.discountedPrice && <span className="text-red-500 text-sm">Enter a valid price</span>}
           </div>
         </div>
 
-        {/* Instructor */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Instructor:</label>
-          <input
-            type="text"
-            name="instructor"
-            value={formData.instructor}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+        {/* Image Upload */}
+        <div className="form-control">
+          <label className="label"><span className="label-text">Course Image*</span></label>
+          <input type="file" accept="image/*" {...register("image", { required: true })} className="file-input file-input-bordered w-full" />
+          {errors.image && <span className="text-red-500 text-sm">Image is required</span>}
         </div>
 
-        {/* Category */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Category:</label>
-          <input
-            type="text"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Icon */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Icon (Emoji):</label>
-          <input
-            type="text"
-            name="icon"
-            value={formData.icon}
-            onChange={handleChange}
-            placeholder="🖥️"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div className="flex gap-4">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`flex-1 py-2 px-4 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-              isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-[#22C3F2] hover:bg-blue-700'
-            }`}
-          >
-            {isSubmitting ?  'Creating...' : 'Create Course'}
-          </button>
-          
-          <button
-            type="button"
-            onClick={resetForm}
-            disabled={isSubmitting}
-            className="flex-1 py-2 px-4 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-          >
-            Reset Form
+        {/* Submit */}
+        <div className="form-control mt-8">
+          <button type="submit" className="btn btn-primary w-full">
+            Add Course <FaPlusCircle className="ml-2" />
           </button>
         </div>
       </form>
