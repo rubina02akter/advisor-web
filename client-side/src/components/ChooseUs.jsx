@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { FaCheck, FaArrowRight } from "react-icons/fa";
-import image from '../../src/assets/images/course-ban-bg.png'
+import { FaCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import img1 from '../../src/assets/images/corporate-workers-brainstorming-together.jpg';
 import img2 from '../../src/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg';
 
@@ -87,10 +87,30 @@ const ChooseUs = () => {
               ))}
             </motion.div>
 
-            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2] transition-colors">
+            {/* <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2] transition-colors">
               More about us
               <FaArrowRight className="ml-2 h-4 w-4" />
+            </button> */}
+
+
+
+
+        <Link>
+          <div className="w-40">
+            <button className=" nav-btn text-white bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2]">
+
+                  <span className="bubble bubble-1"></span>
+                  <span className="bubble bubble-2"></span>
+                  <span className="bubble bubble-3"></span>
+                  <span className="btn-text">More about us</span>
+
             </button>
+          </div>
+
+        </Link>
+
+
+
           </motion.div>
 
           {/* Right Column - Image Placeholder */}

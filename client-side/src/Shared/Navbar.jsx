@@ -51,8 +51,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `nav-btn ${
               isActive
-                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-white bg-[#22C3F2]"
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2] border-0"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
             }`
           }
         >
@@ -63,6 +63,7 @@ const Navbar = () => {
             <FiHome /> Home
           </span>
         </NavLink>
+
       </li>
       <li
         key="menu"
@@ -74,7 +75,7 @@ const Navbar = () => {
             `nav-btn ${
               isActive
                 ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-white bg-[#22C3F2]"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
             }`
           }
         >
@@ -94,7 +95,7 @@ const Navbar = () => {
             `nav-btn ${
               isActive
                 ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-white bg-[#22C3F2]"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
             }`
           }
         >
@@ -114,7 +115,7 @@ const Navbar = () => {
             `nav-btn ${
               isActive
                 ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-white bg-[#22C3F2]"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
             }`
           }
         >
@@ -183,12 +184,33 @@ const Navbar = () => {
                   alt="user"
                   className="w-10 h-10 rounded-full bg-indigo-100 p-1"
                 />
-                <Link
-                  className="hidden pt-2 lg:block btn btn-outline text-white font-extrabold bg-gradient-to-l from-[#01041a] via-[#22C3F2] to-[#22C3F2] border-indigo-300 hover:bg-blue-400 hover:text-white hover:border-indigo-700 mr-2"
+              <div className="hidden lg:inline-flex">
+                  <Link
+                  className="hidden nav-btn  pt-2 lg:block btn btn-outline text-white font-extrabold bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2] hover:bg-blue-400 hover:text-white  mr-2"
                   to="/login"
                 >
-                 Login
+                  <span className="bubble bubble-1"></span>
+                  <span className="bubble bubble-2"></span>
+                  <span className="bubble bubble-3"></span>
+                  <span className="btn-text font-bold">Login</span>
+
                 </Link>
+              </div>
+
+                  {/* <Link>
+                    <div className="w-40">
+                      <button className=" nav-btn text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]">
+
+                            <span className="bubble bubble-1"></span>
+                            <span className="bubble bubble-2"></span>
+                            <span className="bubble bubble-3"></span>
+                            <span className="btn-text">Login</span>
+
+                      </button>
+                    </div>
+                  </Link> */}
+
+
               </div>
             )}
           </div>
