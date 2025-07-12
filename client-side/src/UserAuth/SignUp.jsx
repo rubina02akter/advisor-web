@@ -22,6 +22,7 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    const role = 'user';
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -31,7 +32,7 @@ const SignUp = () => {
           const userInfo = {
             name: data.name,
             email: data.email,
-            role:'user'
+            role
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             console.log("user added to the database");

@@ -10,13 +10,14 @@ const SocialLogIn = () => {
   const { signInWithGoogle } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
-
+ const  role = 'user'
   const handleGoogleSignIn = () => {
     signInWithGoogle().then((result) => {
       console.log(result.user);
       const userInfo = {
         email: result.user?.email,
         name: result.user?.displayName,
+        role
       };
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);

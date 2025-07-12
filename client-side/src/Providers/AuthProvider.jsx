@@ -19,6 +19,9 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [emails, setEmails] = useState([]);
+  const [admin, setAdmin] = useState([]);
+
+  console.log(admin);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -65,7 +68,8 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     profileUp,
     emails,
-    setEmails
+    setEmails,
+    admin, setAdmin
   };
 
   return (

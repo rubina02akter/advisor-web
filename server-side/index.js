@@ -32,9 +32,6 @@ async function run() {
     console.log("You successfully connected to MongoDB!");
 
 
-
-
-
     const database = client.db('AdvisorData');
     const courseCollection = database.collection('courses');
     const userCollection = database.collection('users');
@@ -46,6 +43,23 @@ async function run() {
       const result = await courseCollection.insertOne(newCourse)
       res.send(result)
     })
+    //get 
+    app.get('/courses', async (req, res) => {
+      const cursor = courseCollection.find();
+      const result = await cursor.toArray();
+      res.send(result)
+    })
+    // Get a single course by ID/////////////////
+    app.get('/course/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await courseCollection.findOne(query);
+      res.send(result)
+    });
+
+
+
+    ///for-user
     app.post('/users', async (req, res) => {
       const newUser = req.body;
       console.log(newUser)
@@ -53,20 +67,12 @@ async function run() {
       res.send(result)
     })
 
-    //get post
-    app.get('/courses', async (req, res) => {
-      const cursor = courseCollection.find();
-      const result = await cursor.toArray();
-      res.send(result)
+    app.get('/users/:email', async (req, res) => {
+      const email= req.params.email;
+      const cursor = await userCollection.findOne({email:email});
+      res.send(cursor)
     })
 
-
-    app.get('/users', async (req, res) => {
-      const cursor = userCollection.find();
-      const result = await cursor.toArray();
-      res.send(result)
-    })
-    
 
 
 

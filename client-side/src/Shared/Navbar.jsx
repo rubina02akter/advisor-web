@@ -8,10 +8,14 @@ import logo from "../../src/assets/logo/logo.jpg";
 import "../../src/CssStyle/navbar.css";
 import AuthContext from "../context/AuthContext";
 
+
+
 const Navbar = () => {
-  const { signOutUser, user, loading } = useContext(AuthContext);
+  const { signOutUser, user, loading,admin } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  console.log(admin);
 
   const handleSignOut = () => {
     signOutUser()
@@ -70,7 +74,7 @@ const Navbar = () => {
         className=""
       >
         <NavLink
-          to="/courses"
+          to="/all-courses"
           className={({ isActive }) =>
             `nav-btn ${
               isActive
@@ -85,7 +89,7 @@ const Navbar = () => {
           <span className="btn-text">All Courses</span>
         </NavLink>
       </li>
-      <li
+      {/* <li
         key="qn"
         className=""
       >
@@ -104,26 +108,29 @@ const Navbar = () => {
           <span className="bubble bubble-3"></span>
           <span className="btn-text">Add Course</span>
         </NavLink>
-      </li>
+      </li> */}
       <li
         key="qnx"
         className=" "
       >
+       {
+        admin === "admin" && 
         <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            `nav-btn ${
-              isActive
-                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
-            }`
-          }
-        >
-          <span className="bubble bubble-1"></span>
-          <span className="bubble bubble-2"></span>
-          <span className="bubble bubble-3"></span>
-          <span className="btn-text">Contact</span>
-        </NavLink>
+        to="/add-course"
+        className={({ isActive }) =>
+          `nav-btn ${
+            isActive
+              ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+              : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+          }`
+        }
+      >
+        <span className="bubble bubble-1"></span>
+        <span className="bubble bubble-2"></span>
+        <span className="bubble bubble-3"></span>
+        <span className="btn-text">Add course</span>
+      </NavLink>
+       }
       </li>
     </>
   );

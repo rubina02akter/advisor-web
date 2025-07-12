@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function AllCourse() {
   const [courses, setCourses] = useState([]);
@@ -59,7 +60,7 @@ export default function AllCourse() {
                   </span>
                 </div>
                 <div className="card-actions mt-3">
-                  <button className="btn btn-primary w-full">View Details</button>
+                 <Link to={`/course/${_id}`}> <button className="btn btn-primary w-full">View Details</button></Link>
                 </div>
               </div>
             </div>
