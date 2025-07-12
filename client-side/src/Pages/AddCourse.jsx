@@ -72,7 +72,9 @@ const AddCourse = () => {
       features: data.features
         .map((f) => f.value)
         .filter((val) => val.trim() !== ""),
-      technology: data.technology.map((t) => t.name).filter((name) => name.trim() !== ""),
+      technology: data.technology
+        .map((t) => t.name)
+        .filter((name) => name.trim() !== ""),
       lessons: parseInt(data.lessons),
       project: parseInt(data.project),
       duration: parseInt(data.duration),
@@ -131,44 +133,7 @@ const AddCourse = () => {
               <span className="text-red-500 text-sm">Title is required</span>
             )}
           </div>
-
-          {/* Project */}
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Project*</span>
-            </label>
-            <input
-              type="number"
-              {...register("project", { required: true })}
-              placeholder="Enter the number of projects"
-              className="input input-bordered w-full"
-            />
-            {errors.project && (
-              <span className="text-red-500 text-sm">Subtitle is required</span>
-            )}
-          </div>
-        </div>
-
-        {/* Level & Category */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Level*</span>
-            </label>
-            <select
-              {...register("level", { required: true })}
-              className="select select-bordered w-full"
-            >
-              <option value="">Select Level</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </select>
-            {errors.level && (
-              <span className="text-red-500 text-sm">Level is required</span>
-            )}
-          </div>
-
+          {/* category */}
           <div className="form-control">
             <label className="label">
               <span className="label-text">Category*</span>
@@ -202,73 +167,77 @@ const AddCourse = () => {
           )}
         </div>
 
-        {/* Features Section */}
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Course Features*</span>
-          </label>
-          <div className="space-y-2">
-            {featureFields.map((field, index) => (
-              <div key={field.id} className="flex gap-2 items-center">
-                <input
-                  type="text"
-                  {...register(`features.${index}.value`, { required: true })}
-                  placeholder={`Feature ${index + 1}`}
-                  className="input input-bordered flex-1"
-                />
-                {index > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => removeFeature(index)}
-                    className="btn btn-error btn-sm"
-                  >
-                    <FaTrash />
-                  </button>
-                )}
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={() => appendFeature({ value: "" })}
-              className="btn btn-outline btn-sm mt-2"
-            >
-              <FaPlusCircle className="mr-1" /> Add Feature
-            </button>
-          </div>
-        </div>
+        {/* feature and technology section */}
 
-        {/* technology Members Section */}
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Technology you will learn</span>
-          </label>
-          <div className="space-y-2">
-            {techField.map((field, index) => (
-              <div key={field.id} className="flex gap-2 items-center">
-                <input
-                  type="text"
-                  {...register(`technology.${index}.name`)}
-                  placeholder={`tech name ${index + 1}`}
-                  className="input input-bordered flex-1"
-                />
-                {index > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => removeTech(index)}
-                    className="btn btn-error btn-sm"
-                  >
-                    <FaTrash />
-                  </button>
-                )}
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={() => appendTech({ name: "" })}
-              className="btn btn-outline btn-sm mt-2"
-            >
-              <FaPlusCircle className="mr-1" /> Add Technology
-            </button>
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Features Section */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Course Features*</span>
+            </label>
+            <div className="space-y-2">
+              {featureFields.map((field, index) => (
+                <div key={field.id} className="flex gap-2 items-center">
+                  <input
+                    type="text"
+                    {...register(`features.${index}.value`, { required: true })}
+                    placeholder={`Feature ${index + 1}`}
+                    className="input input-bordered flex-1"
+                  />
+                  {index > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => removeFeature(index)}
+                      className="btn btn-error btn-sm"
+                    >
+                      <FaTrash />
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => appendFeature({ value: "" })}
+                className="btn btn-outline btn-sm mt-2"
+              >
+                <FaPlusCircle className="mr-1" /> Add Feature
+              </button>
+            </div>
+          </div>
+
+          {/* technology Members Section */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Technology you will learn</span>
+            </label>
+            <div className="space-y-2">
+              {techField.map((field, index) => (
+                <div key={field.id} className="flex gap-2 items-center">
+                  <input
+                    type="text"
+                    {...register(`technology.${index}.name`)}
+                    placeholder={`tech name ${index + 1}`}
+                    className="input input-bordered flex-1"
+                  />
+                  {index > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => removeTech(index)}
+                      className="btn btn-error btn-sm"
+                    >
+                      <FaTrash />
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => appendTech({ name: "" })}
+                className="btn btn-outline btn-sm mt-2"
+              >
+                <FaPlusCircle className="mr-1" /> Add Technology
+              </button>
+            </div>
           </div>
         </div>
 
