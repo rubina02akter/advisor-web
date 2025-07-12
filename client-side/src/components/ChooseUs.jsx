@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import img1 from '../../src/assets/images/corporate-workers-brainstorming-together.jpg';
-import img2 from '../../src/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg';
-
+import img1 from "../../src/assets/images/corporate-workers-brainstorming-together.jpg";
+import img2 from "../../src/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg";
 
 const ChooseUs = () => {
   const features = [
@@ -92,47 +91,37 @@ const ChooseUs = () => {
               <FaArrowRight className="ml-2 h-4 w-4" />
             </button> */}
 
-
-
-
-        <Link>
-          <div className="w-40">
-            <button className=" nav-btn text-white bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2]">
-
+            <Link>
+              <div className="w-40">
+                <button className=" nav-btn text-white bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2]">
                   <span className="bubble bubble-1"></span>
                   <span className="bubble bubble-2"></span>
                   <span className="bubble bubble-3"></span>
                   <span className="btn-text">More about us</span>
-
-            </button>
-          </div>
-
-        </Link>
-
-
-
+                </button>
+              </div>
+            </Link>
           </motion.div>
 
           {/* Right Column - Image Placeholder */}
-         
-         {/* <div>
+
+          {/* <div>
           <img src={image} alt="" className="rounded-bl-3xl rounded-tr-3xl" />
          </div> */}
           <div className="flex-1 ml-42">
-       <motion.img
-          src={img1}
-          // animate={{y:[50, 100, 50]}} 
-          transition={{duration: 10 ,repeat:Infinity}}
-          className="relative w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
-        />
-       <motion.img
-          src={img2}
-          // animate={{x:[100, 150, 100]}}
-          transition={{duration: 5 ,repeat:Infinity}}
-          className="-mt-12 -ml-24 w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
-        />
-       </div>
-
+            <motion.img
+              src={img1}
+              // animate={{y:[50, 100, 50]}}
+              transition={{ duration: 10, repeat: Infinity }}
+              className="relative w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+            />
+            <motion.img
+              src={img2}
+              // animate={{x:[100, 150, 100]}}
+              transition={{ duration: 5, repeat: Infinity }}
+              className="-mt-12 -ml-24 w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+            />
+          </div>
         </div>
       </div>
     </section>

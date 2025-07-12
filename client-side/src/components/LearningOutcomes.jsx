@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const LearningOutcomes = () => {
   const metrics = [
-    { value: "97%", label: "Completion Rate" },
-    { value: "83%", label: "Career Advancement" },
-    { value: "4.9/5", label: "Satisfaction Score" },
-    { value: "1500+", label: "Students Trained" }
+    { value: "৯৭%", label: "Completion Rate" },
+    { value: "৮৩%", label: "Career Advancement" },
+    { value: "৪.৯/৫", label: "Satisfaction Score" },
+    { value: "১৫০০+", label: "Students Trained" }
   ];
 
   const outcomes = [
-    "Industry-relevant project portfolio",
-    "Personalized career coaching sessions",
-    "Live Q&A with industry experts",
-    "Lifetime access to course materials",
-    "Job placement assistance",
-    "Certificate of completion"
+    "বাস্তবমুখী প্রজেক্টের মাধ্যমে একটি প্রফেশনাল পোর্টফোলিও তৈরি করতে পারবেন।",
+    "অভিজ্ঞ মেন্টরের সহায়তায় ক্যারিয়ার গড়ার দিকনির্দেশনা পাবেন।",
+    "শেখার জন্য সব রিসোর্স আজীবন ব্যবহার করতে পারবেন।",
+    "কোর্স সফলভাবে শেষ করলে পাবেন একটি প্রামাণ্য সার্টিফিকেট।",
+    // "Job placement assistance",
+    // "Certificate of completion"
   ];
 
   return (
@@ -51,8 +51,8 @@ const LearningOutcomes = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-semibold mb-6">What You'll Achieve</h3>
-          <ul className="space-y-4">
+          <h3 className="text-2xl bangla-font font-semibold mb-6">আপনি যা অর্জন করবেন</h3>
+          <ul className="space-y-4 bangla-font">
             {outcomes.map((outcome, index) => (
               <li key={index} className="flex items-start">
                 <svg className="w-6 h-6 text-[#22C3F2] mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

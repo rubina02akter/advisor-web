@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import DetailsCard from "./DetailsCard";
 import { useParams } from "react-router-dom";
+import DetailsCard from "./DetailsCard";
 
 export default function CourseDetails() {
   const [courses, setCourses] = useState([]);
- const {id} = useParams();
- console.log(id);
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     fetch(`http://localhost:4000/course/${id}`)
@@ -13,13 +13,13 @@ export default function CourseDetails() {
       .then((data) => setCourses(data));
   }, [setCourses]);
 
- console.log(courses);
+  console.log(courses);
 
   return (
     <div>
       <div>
-      <DetailsCard data={courses} />
+        <DetailsCard data={courses} />
       </div>
     </div>
-  )
+  );
 }

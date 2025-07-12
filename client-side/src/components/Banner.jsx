@@ -1,42 +1,50 @@
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
 
 // Import images
-import { default as bg1, default as bg2, default as bg3, default as bg4 } from '../assets/images/book-with-green-board-background.jpg';
+import {
+  default as bg1,
+  default as bg2,
+  default as bg3,
+  default as bg4,
+} from "../assets/images/book-with-green-board-background.jpg";
 
 const slides = [
   {
     id: 1,
     bg: bg1,
-    title: 'Taste Our Delicious',
-    subtitle: 'Best Foods',
-    buttonText: 'Order Delicious Food Now!',
-    description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+    title: "Taste Our Delicious",
+    subtitle: "Best Foods",
+    buttonText: "Order Delicious Food Now!",
+    description:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
   },
   {
     id: 2,
     bg: bg2,
-    title: 'Discover Amazing',
-    subtitle: 'Food Deals',
-    buttonText: 'Explore Menu',
-    description: 'Enjoy the best food at unbeatable prices and top-notch taste.',
+    title: "Discover Amazing",
+    subtitle: "Food Deals",
+    buttonText: "Explore Menu",
+    description:
+      "Enjoy the best food at unbeatable prices and top-notch taste.",
   },
   {
     id: 3,
     bg: bg3,
-    title: 'Fresh & Organic',
-    subtitle: 'Straight From Farm',
+    title: "Fresh & Organic",
+    subtitle: "Straight From Farm",
     buttonText: "Check Today's Specials",
-    description: 'Freshly prepared meals using the best organic ingredients.',
+    description: "Freshly prepared meals using the best organic ingredients.",
   },
   {
     id: 4,
     bg: bg4,
-    title: 'Quick Delivery',
-    subtitle: 'Right To Your Door',
-    buttonText: 'Get It Now',
-    description: 'Lightning-fast delivery and steaming hot meals at your doorstep.',
+    title: "Quick Delivery",
+    subtitle: "Right To Your Door",
+    buttonText: "Get It Now",
+    description:
+      "Lightning-fast delivery and steaming hot meals at your doorstep.",
   },
 ];
 

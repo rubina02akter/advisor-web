@@ -4,14 +4,12 @@ import { FiHome, FiLogOut, FiMenu, FiX } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import userImg from "../../src/assets/icons8-user-96.png";
-import logo from "../../src/assets/logo/logo.jpg";
+import logo from "../../src/assets/logo/logo.png";
 import "../../src/CssStyle/navbar.css";
 import AuthContext from "../context/AuthContext";
 
-
-
 const Navbar = () => {
-  const { signOutUser, user, loading,admin } = useContext(AuthContext);
+  const { signOutUser, user, loading, admin } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -46,10 +44,7 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li
-        key="home"
-        className=" "
-      >
+      <li key="home" className=" ">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -67,12 +62,8 @@ const Navbar = () => {
             <FiHome /> Home
           </span>
         </NavLink>
-
       </li>
-      <li
-        key="menu"
-        className=""
-      >
+      <li key="menu" className="">
         <NavLink
           to="/all-courses"
           className={({ isActive }) =>
@@ -109,39 +100,41 @@ const Navbar = () => {
           <span className="btn-text">Add Course</span>
         </NavLink>
       </li> */}
-      <li
-        key="qnx"
-        className=" "
-      >
-       {
-        admin === "admin" && 
-        <NavLink
-        to="/add-course"
-        className={({ isActive }) =>
-          `nav-btn ${
-            isActive
-              ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-              : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
-          }`
-        }
-      >
-        <span className="bubble bubble-1"></span>
-        <span className="bubble bubble-2"></span>
-        <span className="bubble bubble-3"></span>
-        <span className="btn-text">Add course</span>
-      </NavLink>
-       }
+      <li key="qnx" className=" ">
+        {admin === "admin" && (
+          <NavLink
+            to="/add-course"
+            className={({ isActive }) =>
+              `nav-btn ${
+                isActive
+                  ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                  : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+              }`
+            }
+          >
+            <span className="bubble bubble-1"></span>
+            <span className="bubble bubble-2"></span>
+            <span className="bubble bubble-3"></span>
+            <span className="btn-text">Add course</span>
+          </NavLink>
+        )}
       </li>
     </>
   );
 
   return (
-    <nav className="text-white fixed w-full z-50 bg-opacity-90 backdrop-blur-md shadow-lg">
+    <nav className="text-white fixed w-full z-50 bg-opacity-90 backdrop-blur-md shadow-lg bg-white">
       <div className="container mx-auto flex justify-between items-center p-3">
-        <Link to='/'> <div className="text-xl font-bold flex items-center">
+        {/* <Link to='/'> <div className="text-xl font-bold flex items-center">
           <img src={logo} alt="" className="w-12 h-12 rounded-full" />
-         <Link to='/'>  <p className="text-[#22C3F2] font-medium">Advisors</p> </Link>
+      <p className="text-[#22C3F2] font-medium">Advisors</p>
         </div>
+        </Link> */}
+        <Link to="/">
+          <div className="text-xl font-bold flex items-center">
+            <img src={logo} alt="" className="w-full h-12 " />
+            {/* <p className="text-[#22C3F2] font-medium">Advisors</p> */}
+          </div>
         </Link>
 
         <ul className="hidden lg:flex gap-4">{links}</ul>
@@ -191,20 +184,19 @@ const Navbar = () => {
                   alt="user"
                   className="w-10 h-10 rounded-full bg-indigo-100 p-1"
                 />
-              <div className="hidden lg:inline-flex">
+                <div className="hidden lg:inline-flex">
                   <Link
-                  className="hidden nav-btn  pt-2 lg:block btn btn-outline text-white font-extrabold bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2] hover:bg-blue-400 hover:text-white  mr-2"
-                  to="/login"
-                >
-                  <span className="bubble bubble-1"></span>
-                  <span className="bubble bubble-2"></span>
-                  <span className="bubble bubble-3"></span>
-                  <span className="btn-text font-bold">Login</span>
+                    className="hidden nav-btn  pt-2 lg:block btn btn-outline text-white font-extrabold bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2] hover:bg-blue-400 hover:text-white  mr-2"
+                    to="/login"
+                  >
+                    <span className="bubble bubble-1"></span>
+                    <span className="bubble bubble-2"></span>
+                    <span className="bubble bubble-3"></span>
+                    <span className="btn-text font-bold">Login</span>
+                  </Link>
+                </div>
 
-                </Link>
-              </div>
-
-                  {/* <Link>
+                {/* <Link>
                     <div className="w-40">
                       <button className=" nav-btn text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]">
 
@@ -216,8 +208,6 @@ const Navbar = () => {
                       </button>
                     </div>
                   </Link> */}
-
-
               </div>
             )}
           </div>
