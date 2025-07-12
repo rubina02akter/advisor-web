@@ -16,7 +16,7 @@ const AddCourse = () => {
   } = useForm({
     defaultValues: {
       features: [{ value: "" }],
-      tech: [{ name: "" }],
+      technology: [{ name: "" }], 
     },
   });
 
