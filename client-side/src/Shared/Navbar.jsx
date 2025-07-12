@@ -19,9 +19,9 @@ const Navbar = () => {
     signOutUser()
       .then(() => {
         Swal.fire({
-          position: "top-end",
+          position: "top-right",
           icon: "success",
-          title: "Logged out successfully.",
+          title: "Logged Out Successfully.",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -240,11 +240,21 @@ const Navbar = () => {
               </button>
             </div>
             <ul className="flex flex-col gap-4 p-6">
-              {React.Children.toArray(links).map((link) =>
+              {/* {React.Children.toArray(links).map((link) =>
                 React.cloneElement(link, {
-                  className: `${link.props.className} w-full text-left`,
+                  className: `${link.props.className} w-full text-left bg-white text-black rounded-md  lg:bg-transparent`,
                 })
-              )}
+              )} */}
+
+              {React.Children.toArray(links).map((link, index) => (
+                <div
+                  key={index}
+                  className="bg-white text-black shadow px-2  hover:bg-gray-100 transition"
+                >
+                  {link}
+                </div>
+              ))}
+
               {user ? (
                 <li>
                   <button
