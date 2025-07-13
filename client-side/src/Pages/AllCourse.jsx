@@ -18,20 +18,13 @@ export default function AllCourse() {
           const {
             _id,
             title,
-            subtitle,
-            level,
-            description,
-            features,
-            team,
-            lessons,
+          
             originalPrice,
             discountedPrice,
             instructor,
             category,
             image,
-            enrolled,
-            rating,
-            status,
+         
           } = course;
 
           return (
@@ -59,9 +52,18 @@ export default function AllCourse() {
                     ${originalPrice?.toFixed(2)}
                   </span>
                 </div>
-                <div className="card-actions mt-3">
-                 <Link to={`/course/${_id}`}> <button className="btn btn-primary w-full">View Details</button></Link>
+
+                <Link to={`/course/${_id}`}>
+                <div className="text-center w-full">
+                  <button className="nav-btn justify-center bg-[#22C3F2] text-white ">
+                    <span className="bubble bubble-1"></span>
+                    <span className="bubble bubble-2"></span>
+                    <span className="bubble bubble-3"></span>
+                    <span className="btn-text">View Details</span>
+                  </button>
                 </div>
+              </Link>
+
               </div>
             </div>
           );

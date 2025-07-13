@@ -2,11 +2,17 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { FaPlusCircle, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../src/Hooks/useAxiosPublic";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddCourse = () => {
+  const { user } = useContext(AuthContext);
+  const email = user?.email || "";
+
+
   const {
     register,
     control,
@@ -84,6 +90,7 @@ const AddCourse = () => {
       category: data.category,
       image: imageUrl,
       status: "active",
+      email
     };
 
     try {
@@ -339,6 +346,7 @@ const AddCourse = () => {
             )}
           </div>
         </div>
+        
 
         {/* Submit */}
         <div className="form-control mt-8">

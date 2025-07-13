@@ -79,7 +79,7 @@ const CoursePage = () => {
                     <span className="bubble bubble-1"></span>
                     <span className="bubble bubble-2"></span>
                     <span className="bubble bubble-3"></span>
-                    <span className="btn-text">View Details</span>
+                    <span className="btn-text">View Details static</span>
                   </button>
                 </div>
               </Link>

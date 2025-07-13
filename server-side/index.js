@@ -68,13 +68,42 @@ async function run() {
     })
 
     app.get('/users/:email', async (req, res) => {
-      const email= req.params.email;
-      const cursor = await userCollection.findOne({email:email});
+      const email = req.params.email;
+      const cursor = await userCollection.findOne({ email: email });
       res.send(cursor)
     })
 
+    //get a single email from course for my course route
+    app.get('/my-course', async (req, res) => {
+      const email = req.query.email;
+      const result = await courseCollection.find({ email: email }).toArray();
+      res.send(result)
+      console.log(result)
+    })
 
 
+    //////delete api
+    app.delete('/my-course/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) }
+      const result = await courseCollection.deleteOne(query);
+      res.send(result)
+    })
+
+
+    //update 
+    app.put('/course/:id', async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: req.body
+      }
+
+      const result = await courseCollection.updateOne(filter, updatedDoc, options)
+
+      res.send(result);
+    })
 
 
 

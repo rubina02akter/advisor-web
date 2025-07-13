@@ -119,6 +119,26 @@ const Navbar = () => {
           </NavLink>
         )}
       </li>
+
+      <li key="qnx" className=" ">
+        {admin === "admin" && (
+          <NavLink
+            to="/my-added-course"
+            className={({ isActive }) =>
+              `nav-btn ${
+                isActive
+                  ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                  : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+              }`
+            }
+          >
+            <span className="bubble bubble-1"></span>
+            <span className="bubble bubble-2"></span>
+            <span className="bubble bubble-3"></span>
+            <span className="btn-text">My Added course</span>
+          </NavLink>
+        )}
+      </li>
     </>
   );
 
@@ -228,7 +248,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full md:w-1/4  bg-transparent bg-opacity-95 backdrop-blur-lg text-white shadow-lg z-50 lg:hidden"
+            className="fixed top-0 right-0 h-full md:w-1/4  bg-white text-white shadow-lg z-50 lg:hidden"
           >
             <div className="flex justify-between items-center p-4 border-b border-indigo-700">
               <span className="text-xl font-bold text-black">Menu</span>

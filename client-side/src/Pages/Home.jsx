@@ -11,7 +11,7 @@ import Header from "../components/Header";
 import LearningOutcomes from "../components/LearningOutcomes";
 import MarqueeHeading from "../components/MarqueeHeading";
 import Partners from "../components/Partners";
-import GetUser from "../UserAuth/getUser";
+// import GetUser from "../UserAuth/getUser";
 
 // import CategorySec from "../components/unused/CategorySec";
 
@@ -19,7 +19,7 @@ import GetUser from "../UserAuth/getUser";
 export default function Home() {
   return (
     <div>
-   <GetUser />
+   {/* <GetUser /> */}
       <MarqueeHeading />
 
       <div className="">
