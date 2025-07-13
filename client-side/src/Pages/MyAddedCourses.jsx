@@ -156,8 +156,7 @@ export default function MyAddedCourses() {
         ) : (
           <div className="text-center py-10">
             <p className="text-gray-600 text-lg">
-              No posts found. Please add a post through the “Add volunteer need
-              post” page.
+              No posts found. Please add a course through the “Add course ” page.
             </p>
           </div>
         )}

@@ -91,20 +91,18 @@ async function run() {
     })
 
 
-    //update 
-    app.put('/course/:id', async (req, res) => {
-      const id = req.params.id;
-      const filter = { _id: new ObjectId(id) };
-      const options = { upsert: true };
-      const updatedDoc = {
-        $set: req.body
-      }
+   // PATCH /courses/:id
+app.patch("/update-courses/:id", async (req, res) => {
+  const id = req.params.id;
+  const updatedData = req.body;
 
-      const result = await courseCollection.updateOne(filter, updatedDoc, options)
+  const result = await courseCollection.updateOne(
+    { _id: new ObjectId(id) },
+    { $set: updatedData }
+  );
 
-      res.send(result);
-    })
-
+  res.send(result);
+});
 
 
   } finally {

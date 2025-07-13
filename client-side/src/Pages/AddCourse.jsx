@@ -350,9 +350,14 @@ const AddCourse = () => {
 
         {/* Submit */}
         <div className="form-control mt-8">
-          <button type="submit" className="btn btn-primary w-full">
-            Add Course <FaPlusCircle className="ml-2" />
-          </button>
+        <div className="text-center w-full">
+                  <button className="nav-btn justify-center bg-[#006DD4] text-white ">
+                    <span className="bubble bubble-1"></span>
+                    <span className="bubble bubble-2"></span>
+                    <span className="bubble bubble-3"></span>
+                    <span className="btn-text"><FaPlusCircle />Add Course</span>
+                  </button>
+                </div>
         </div>
       </form>
     </div>

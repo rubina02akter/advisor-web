@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function UpdateCourse() {
   return (
-    <div>
-      
-    </div>
+    <div>UpdateCourse</div>
   )
 }
