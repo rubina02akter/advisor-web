@@ -248,7 +248,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 min-h-screen md:w-1/4  bg-white text-white shadow-lg z-50 lg:hidden"
+            className="fixed top-0 right-0 h-[380px] md:w-1/4  bg-white text-white  z-50 lg:hidden"
           >
             <div className="flex justify-between items-center p-4 border-b border-indigo-700">
               <span className="text-xl font-bold text-black">Menu</span>
@@ -269,7 +269,7 @@ const Navbar = () => {
               {React.Children.toArray(links).map((link, index) => (
                 <div
                   key={index}
-                  className="bg-white text-black shadow px-2  hover:bg-gray-100 transition flex flex-col gap-4"
+                  className="bg-white text-black  px-2 transition flex flex-col gap-4"
                 >
                   {link}
                 </div>
