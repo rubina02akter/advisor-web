@@ -49,9 +49,9 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             `nav-btn ${
-             isActive
-                ? "text-white mt-2 md:m-0 bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-[#22C3F2] mt-2 mb-2 md:m-0 border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+              isActive
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2] border-0"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
             }`
           }
         >
@@ -70,7 +70,7 @@ const Navbar = () => {
             `nav-btn ${
               isActive
                 ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-[#22C3F2] mt-2 mb-2 md:m-0 border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
             }`
           }
         >
@@ -108,14 +108,14 @@ const Navbar = () => {
               `nav-btn ${
                 isActive
                   ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-[#22C3F2] mt-4 md:m-0 border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+                  : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
               }`
             }
           >
             <span className="bubble bubble-1"></span>
             <span className="bubble bubble-2"></span>
             <span className="bubble bubble-3"></span>
-            <span className="btn-text">Add Course</span>
+            <span className="btn-text">Add course</span>
           </NavLink>
         )}
       </li>
@@ -128,14 +128,14 @@ const Navbar = () => {
               `nav-btn ${
                 isActive
                   ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                  : "text-[#22C3F2] mt-4 mb-3 md:m-0 border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+                  : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
               }`
             }
           >
             <span className="bubble bubble-1"></span>
             <span className="bubble bubble-2"></span>
             <span className="bubble bubble-3"></span>
-            <span className="btn-text">My Added Course</span>
+            <span className="btn-text">My Added course</span>
           </NavLink>
         )}
       </li>
@@ -153,6 +153,7 @@ const Navbar = () => {
         <Link to="/">
           <div className="text-xl font-bold flex items-center">
             <img src={logo} alt="" className="w-full h-12 " />
+            {/* <p className="text-[#22C3F2] font-medium">Advisors</p> */}
           </div>
         </Link>
 
