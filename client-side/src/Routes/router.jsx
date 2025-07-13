@@ -9,12 +9,14 @@ import ViewDetails from "../components/ViewDetails";
 import CourseDetails from "../components/CourseDetails";
 import MyAddedCourses from "../Pages/MyAddedCourses";
 import UpdateCourse from "../Pages/UpdateCourse";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement:<ErrorPage />,
     children:[
       {
         path: '/',
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
         element: <MyAddedCourses />
       },
       {
-        path: 'update-course/:id',
+        path: "/update-course/:id",
         element: <UpdateCourse />
       },
       {

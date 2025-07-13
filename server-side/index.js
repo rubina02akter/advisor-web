@@ -8,7 +8,7 @@ const app = express();
 // With this:
 app.use(cors({
   origin: 'http://localhost:5173', // or use process.env.FRONTEND_URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT','PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
@@ -81,6 +81,28 @@ async function run() {
       console.log(result)
     })
 
+    // Get single course by ID for Update Page
+    app.get('/my-course/:id', async (req, res) => {
+      const id = req.params.id;
+      const result = await courseCollection.findOne({ _id: new ObjectId(id) });
+      res.send(result);
+    });
+
+    // Update course by ID
+    app.patch("/courses/:id", async (req, res) => {
+      const id = req.params.id;
+      const updatedData = req.body;
+
+      const result = await courseCollection.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: updatedData }
+      );
+
+      res.send(result);
+    });
+
+
+
 
     //////delete api
     app.delete('/my-course/:id', async (req, res) => {
@@ -91,18 +113,6 @@ async function run() {
     })
 
 
-   // PATCH /courses/:id
-app.patch("/update-courses/:id", async (req, res) => {
-  const id = req.params.id;
-  const updatedData = req.body;
-
-  const result = await courseCollection.updateOne(
-    { _id: new ObjectId(id) },
-    { $set: updatedData }
-  );
-
-  res.send(result);
-});
 
 
   } finally {

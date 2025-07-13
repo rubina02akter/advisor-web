@@ -96,7 +96,7 @@ export default function MyAddedCourses() {
                         <td className="py-4 px-4 text-sm text-gray-800">
                           <div className="flex gap-2">
                             <Link
-                              to={`/update-post/${_id}`}
+                              to={`/update-course/${_id}`}
                               className="btn bg-gradient-to-r from-[#228d79] to-[#148161] text-white btn-sm"
                             >
                               Update
@@ -136,8 +136,8 @@ export default function MyAddedCourses() {
                     </p>
                     <div className="mt-4">
                       <Link
-                        to={`/update-course/${_id}`}
-                        className="btn bg-gradient-to-r from-green-600 to-green-800 text-white btn-sm w-full"
+                       to={`/update-course/${_id}`}
+                      className="btn bg-gradient-to-r from-green-600 to-green-800 text-white btn-sm w-full"
                       >
                         Update
                       </Link>
