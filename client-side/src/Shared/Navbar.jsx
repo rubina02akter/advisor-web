@@ -115,7 +115,7 @@ const Navbar = () => {
             <span className="bubble bubble-1"></span>
             <span className="bubble bubble-2"></span>
             <span className="bubble bubble-3"></span>
-            <span className="btn-text">Add course</span>
+            <span className="btn-text">Add Course</span>
           </NavLink>
         )}
       </li>
@@ -135,7 +135,7 @@ const Navbar = () => {
             <span className="bubble bubble-1"></span>
             <span className="bubble bubble-2"></span>
             <span className="bubble bubble-3"></span>
-            <span className="btn-text">My Added course</span>
+            <span className="btn-text">My Added Course</span>
           </NavLink>
         )}
       </li>
@@ -145,15 +145,9 @@ const Navbar = () => {
   return (
     <nav className="text-white fixed w-full z-50 bg-opacity-90 backdrop-blur-md shadow-lg bg-white">
       <div className="container mx-auto flex justify-between items-center p-3">
-        {/* <Link to='/'> <div className="text-xl font-bold flex items-center">
-          <img src={logo} alt="" className="w-12 h-12 rounded-full" />
-      <p className="text-[#22C3F2] font-medium">Advisors</p>
-        </div>
-        </Link> */}
         <Link to="/">
           <div className="text-xl font-bold flex items-center">
             <img src={logo} alt="" className="w-full h-12 " />
-            {/* <p className="text-[#22C3F2] font-medium">Advisors</p> */}
           </div>
         </Link>
 
@@ -162,11 +156,11 @@ const Navbar = () => {
         <div className="flex gap-2">
           <div>
             {user ? (
-              <div className="dropdown dropdown-end z-50">
+              <div className="dropdown  dropdown-end z-50">
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost btn-circle avatar justify-center"
                 >
                   <div
                     title={user?.displayName || "User"}
@@ -182,15 +176,15 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-indigo-800 rounded-box md:w-52 w-32 text-xs"
+                  className="menu menu-sm  dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box md:w-36 w-32 text-center  items-center"
                 >
-                  <li className="text-center font-extrabold text-indigo-100 underline">
+                  <li className="text-center font-bold text-black ">
                     {user.displayName}
                   </li>
                   <li className="mt-2">
                     <button
                       onClick={handleSignOut}
-                      className="bg-indigo-100 text-indigo-900 block text-center hover:bg-indigo-200"
+                      className="text-white justify-center w-24 h-8 font-bold font-4xl nav-btn bg-gradient-to-br from-[#200106] via-[#8d2e09] to-[#f12c2c] block text-center"
                     >
                       Logout
                     </button>
@@ -215,19 +209,6 @@ const Navbar = () => {
                     <span className="btn-text font-bold">Login</span>
                   </Link>
                 </div>
-
-                {/* <Link>
-                    <div className="w-40">
-                      <button className=" nav-btn text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]">
-
-                            <span className="bubble bubble-1"></span>
-                            <span className="bubble bubble-2"></span>
-                            <span className="bubble bubble-3"></span>
-                            <span className="btn-text">Login</span>
-
-                      </button>
-                    </div>
-                  </Link> */}
               </div>
             )}
           </div>
@@ -260,12 +241,6 @@ const Navbar = () => {
               </button>
             </div>
             <ul className="flex flex-col gap-4 p-6">
-              {/* {React.Children.toArray(links).map((link) =>
-                React.cloneElement(link, {
-                  className: `${link.props.className} w-full text-left bg-white text-black rounded-md  lg:bg-transparent`,
-                })
-              )} */}
-
               {React.Children.toArray(links).map((link, index) => (
                 <div
                   key={index}
@@ -279,7 +254,7 @@ const Navbar = () => {
                 <li>
                   <button
                     onClick={handleSignOut}
-                    className="flex  items-center gap-2 w-full text-left text-black"
+                    className="flex nav-btn text-white font-extrabold bg-gradient-to-br from-[#200106] via-[#8d2e09] to-[#f12c2c]  items-center gap-2 w-full text-left"
                   >
                     <FiLogOut /> Logout
                   </button>
@@ -288,17 +263,27 @@ const Navbar = () => {
                 <li>
                   <NavLink
                     to="/login"
-                    className={({ isActive }) =>
-                      `flex items-center gap-2 w-full text-left ${
-                        isActive
-                          ? "text-black font-bold"
-                          : "text-[#22C2F2] hover:text-black"
-                      }`
-                    }
+                    // className={({ isActive }) =>
+                    //   `flex items-center gap-2 w-full text-left ${
+                    //     isActive
+                    //       ? "text-black font-bold"
+                    //       : "text-[#22C2F2] hover:text-black"
+                    //   }`
+                    // }
+                     className=" nav-btn pt-2 btn btn-outline text-white font-bold bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2] hover:bg-blue-400 hover:text-white  mr-2"
                   >
-                    <FiLogOut /> Login
+                    <span className="bubble bubble-1"></span>
+                    <span className="bubble bubble-2"></span>
+                    <span className="bubble bubble-3"></span>
+                    <span className="btn-text font-bold"> <FiLogOut /> Login</span>
                   </NavLink>
                 </li>
+
+
+                    
+
+
+
               )}
             </ul>
           </motion.div>

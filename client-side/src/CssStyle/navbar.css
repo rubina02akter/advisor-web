@@ -3,6 +3,10 @@
   font-family: "Hind Siliguri", sans-serif;
 }
 
+.mixed-font {
+  font-family: "Noto Sans Bengali", "Roboto", sans-serif;
+}
+
 /* Animated button effect for nav links */
 .nav-btn {
   position: relative;
@@ -18,6 +22,7 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
+  justify-content: center;
 }
 
 .nav-btn .bubble {

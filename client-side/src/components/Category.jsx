@@ -160,7 +160,7 @@ const Category = () => {
           </h2>
 
 
-          <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 p-6 lg:pl-44 lg:pr-44 pb-12">
+          <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6 lg:pl-44 lg:pr-44 pb-12">
       {categories.map((category, index) => (
         <motion.div
           key={index}
