@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  console.log(admin);
+  // console.log(admin);
 
   const handleSignOut = () => {
     signOutUser()
@@ -80,26 +80,6 @@ const Navbar = () => {
           <span className="btn-text">All Courses</span>
         </NavLink>
       </li>
-      {/* <li
-        key="qn"
-        className=""
-      >
-        <NavLink
-          to="/add-course"
-          className={({ isActive }) =>
-            `nav-btn ${
-              isActive
-                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
-                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
-            }`
-          }
-        >
-          <span className="bubble bubble-1"></span>
-          <span className="bubble bubble-2"></span>
-          <span className="bubble bubble-3"></span>
-          <span className="btn-text">Add Course</span>
-        </NavLink>
-      </li> */}
       <li key="qnx" className=" ">
         {admin === "admin" && (
           <NavLink
@@ -270,20 +250,17 @@ const Navbar = () => {
                     //       : "text-[#22C2F2] hover:text-black"
                     //   }`
                     // }
-                     className=" nav-btn pt-2 btn btn-outline text-white font-bold bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2] hover:bg-blue-400 hover:text-white  mr-2"
+                    className=" nav-btn pt-2 btn btn-outline text-white font-bold bg-gradient-to-br from-[#22C3F2] via-[#22C3F2] to-[#22C3F2] hover:bg-blue-400 hover:text-white  mr-2"
                   >
                     <span className="bubble bubble-1"></span>
                     <span className="bubble bubble-2"></span>
                     <span className="bubble bubble-3"></span>
-                    <span className="btn-text font-bold"> <FiLogOut /> Login</span>
+                    <span className="btn-text font-bold">
+                      {" "}
+                      <FiLogOut /> Login
+                    </span>
                   </NavLink>
                 </li>
-
-
-                    
-
-
-
               )}
             </ul>
           </motion.div>
