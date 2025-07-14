@@ -1,3 +1,4 @@
+import { FiHome, FiMail, FiPhone } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import bg from "../../src/assets/images/still-life-books-versus-technology.jpg"; // Update with your background image
 import footerImg from "../../src/assets/logo/logo-bg.png"; // Update with your logo path
@@ -29,7 +30,39 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+            <nav>
+              {/* Contact Information */}
+              <div className="space-y-4 text-lg">
+                <h3 className="text-lg font-semibold">Contact</h3>
+
+                <div className="flex items-start gap-2">
+                  <FiHome className=" text-white" />
+                  <div>
+                    <p>23/16, BIJLI MAHALLA, BLOCK-F</p>
+                    {/* <p>Jannatbagh Panir Pump</p> */}
+                    <p>MOHAMMADPUR, DHAKA-1207</p>
+                    {/* <p>Bangladesh, 1216</p> */}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <FiPhone className="text-white" />
+                  <p>+8801973430706</p>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <FiMail className="text-white" />
+                  <a
+                    href="mailto:care@learningbangladesh.con"
+                    className="hover:text-primary transition-colors"
+                  >
+                    advisorsinstitute@gmail.com
+                  </a>
+                </div>
+              </div>
+            </nav>
+
             <nav>
               <h6 className="text-lg font-semibold mb-4">Quick Links</h6>
               <Link
