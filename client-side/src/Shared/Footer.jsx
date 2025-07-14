@@ -1,6 +1,6 @@
-import footerImg from "../../src/assets/images/book-with-green-board-background.jpg"; // Update with your logo path
-import bg from "../../src/assets/images/still-life-books-versus-technology.jpg"; // Update with your background image
 import { Link } from "react-router-dom";
+import bg from "../../src/assets/images/still-life-books-versus-technology.jpg"; // Update with your background image
+import footerImg from "../../src/assets/logo/logo-bg.png"; // Update with your logo path
 import SocialButtons from "../components/SocialButtons";
 
 const Footer = () => {
@@ -19,10 +19,10 @@ const Footer = () => {
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <img
               src={footerImg}
-              alt="Advisor & SquadXTech Logo"
+              alt="Advisors Institute Logo"
               className="w-32 md:w-48 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
             />
-            <div className="text-lg font-bold">Advisor & SquadXTech</div>
+            {/* <div className="text-lg font-bold">Advisor & SquadXTech</div> */}
             <p className="text-sm max-w-md mx-auto lg:mx-0">
               Your trusted partners in technology solutions and educational
               services. We provide cutting-edge courses and premium tech
@@ -44,13 +44,7 @@ const Footer = () => {
                 to="/courses"
                 className="link link-hover block mb-2 hover:text-blue-500"
               >
-                Courses
-              </Link>
-              <Link
-                to="/products"
-                className="link link-hover block mb-2 hover:text-blue-500"
-              >
-                Products
+                All Courses
               </Link>
               <Link
                 to="/about"
@@ -112,7 +106,7 @@ const Footer = () => {
           <div className="text-center p-4 mt-4">
             <p className="text-xs md:text-sm font-light opacity-80">
               Copyright © {new Date().getFullYear()} - All rights reserved by
-              Advisor & SquadXTech | Developed by Your Company Name
+              Advisors Institute | Developed by SquadXTech
             </p>
           </div>
           <div className="w-10/12 mx-auto border-b border-white opacity-30"></div>
