@@ -29,11 +29,9 @@ const CoursePage = () => {
             title,
             originalPrice,
             discountedPrice,
-            instructor,
             category,
             image,
           } = course;
-
           return (
             <div
               key={_id}

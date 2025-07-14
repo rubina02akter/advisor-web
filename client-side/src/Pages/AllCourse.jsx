@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 export default function AllCourse() {
   const [courses, setCourses] = useState([]);
 
@@ -13,19 +12,24 @@ export default function AllCourse() {
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-8">📚 আমাদের কোর্স সমূহ</h1>
+      <h1 className="text-3xl font-bold text-center mb-3">
+        📚 আমাদের কোর্স সমূহ
+      </h1>
+      <p className="mb-8 m-4 md:ml-24 md:mr-24">
+        আমাদের কোর্সসমূহ এমনভাবে ডিজাইন করা হয়েছে যাতে আপনি সবচেয়ে
+        চাহিদাসম্পন্ন পেশাদার দক্ষতাগুলো অর্জন করতে পারেন। এই প্রোগ্রামের
+        মাধ্যমে অর্জিত জ্ঞান, অভিজ্ঞতা ও দক্ষতা আপনাকে আন্তর্জাতিক বাজারে আপনার
+        কাঙ্ক্ষিত চাকরি নিশ্চিত করতে সহায়তা করবে।
+      </p>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {courses.map((course) => {
           const {
             _id,
             title,
-          
             originalPrice,
             discountedPrice,
-            instructor,
             category,
             image,
-         
           } = course;
 
           return (
@@ -41,30 +45,30 @@ export default function AllCourse() {
                 />
               </figure>
               <div className="card-body">
-                <div className="badge badge-success badge-outline mb-2">
+                <div className=" bg-[#F4FCF3] badge text-[#3EBE0A] px-3 py-4 font-medium font-5xl rounded-xl ">
                   {category}
                 </div>
-                <h2 className="card-title text-lg">{title}</h2>
-                <p className="text-sm text-gray-600">Instructor: {instructor}</p>
-               
-                <div className="text-blue-600 font-bold text-base">
-                  ${discountedPrice?.toFixed(2)}{" "}
+                <h2 className="card-title text-2xl">{title}</h2>
+                {/* <p className="text-sm text-gray-600">
+                  Instructor: {instructor}
+                </p> */}
+                <div className="text-blue-600 font-bold text-xl">
+                  ৳{discountedPrice?.toFixed(0)}{" "}
                   <span className="line-through text-gray-400 text-sm">
-                    ${originalPrice?.toFixed(2)}
+                    ৳{originalPrice?.toFixed(0)}
                   </span>
                 </div>
 
                 <Link to={`/course/${_id}`}>
-                <div className="text-center w-full">
-                  <button className="nav-btn justify-center bg-[#22C3F2] text-white ">
-                    <span className="bubble bubble-1"></span>
-                    <span className="bubble bubble-2"></span>
-                    <span className="bubble bubble-3"></span>
-                    <span className="btn-text">View Details</span>
-                  </button>
-                </div>
-              </Link>
-
+                  <div className="text-center w-full">
+                    <button className="nav-btn justify-center bg-[#22C3F2] text-white ">
+                      <span className="bubble bubble-1"></span>
+                      <span className="bubble bubble-2"></span>
+                      <span className="bubble bubble-3"></span>
+                      <span className="btn-text">View Details</span>
+                    </button>
+                  </div>
+                </Link>
               </div>
             </div>
           );
