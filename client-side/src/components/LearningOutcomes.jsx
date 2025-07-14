@@ -66,8 +66,8 @@ const LearningOutcomes = () => {
           <div className="mt-8 p-6 bg-white rounded-xl shadow-md border-l-4 border-[#22C3F2]">
             <h4 className="font-bold mb-2">Special Bonus:</h4>
             <p>
-              Free access to our exclusive <strong>Job Preparedness Workshop</strong> 
-              and <strong>LinkedIn Profile Optimization</strong> session with course enrollment.
+              Free access to our exclusive <strong>Job Preparedness Workshop </strong> 
+              and <strong>Linkedin Profile Optimization</strong> session with course enrollment.
             </p>
           </div>
         </motion.div>
