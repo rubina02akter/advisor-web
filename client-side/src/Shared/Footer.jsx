@@ -24,9 +24,7 @@ const Footer = () => {
             />
             {/* <div className="text-lg font-bold">Advisor & SquadXTech</div> */}
             <p className="text-sm max-w-md mx-auto lg:mx-0">
-              Your trusted partners in technology solutions and educational
-              services. We provide cutting-edge courses and premium tech
-              products to help you stay ahead in the digital world.
+              অনলাইন লাইভ স্কিল ডেভেলপমেন্ট প্ল্যাটফর্ম।
             </p>
           </div>
 
@@ -63,12 +61,6 @@ const Footer = () => {
             <nav>
               <h6 className="text-lg font-semibold mb-4">Support</h6>
               <Link
-                to="/faq"
-                className="link link-hover block mb-2 hover:text-blue-500"
-              >
-                FAQ
-              </Link>
-              <Link
                 to="/privacy"
                 className="link link-hover block mb-2 hover:text-blue-500"
               >
@@ -79,12 +71,6 @@ const Footer = () => {
                 className="link link-hover block mb-2 hover:text-blue-500"
               >
                 Terms of Service
-              </Link>
-              <Link
-                to="/shipping"
-                className="link link-hover block mb-2 hover:text-blue-500"
-              >
-                Shipping Policy
               </Link>
               <Link
                 to="/returns"
