@@ -78,7 +78,7 @@ const CoursePage = () => {
       {/* 🔽 Show All Button */}
       <div className="flex justify-center mt-10">
         <Link to="/all-courses">
-          <button className="nav-btn !w-96 btn  h-12 bg-blue-600 text-white rounded-md relative overflow-hidden flex items-center justify-center gap-2">
+          <button className="nav-btn lg:!w-96 !w-64 btn  h-12 bg-blue-600 text-white rounded-md relative overflow-hidden flex items-center justify-center gap-2">
             <span className="bubble bubble-1"></span>
             <span className="bubble bubble-2"></span>
             <span className="bubble bubble-3"></span>

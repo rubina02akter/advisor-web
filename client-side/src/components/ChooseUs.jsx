@@ -8,18 +8,18 @@ const ChooseUs = () => {
   const features = [
     {
       id: 1,
-      title: "Free for physically handcraft",
-      description: "We offer free resources for hands-on learning experiences",
+      title: "দক্ষ প্রশিক্ষক ও ইন্ডাস্ট্রি এক্সপার্টদের গাইডলাইন",
+      description: "আমাদের শিক্ষকেরা শুধুমাত্র একাডেমিক নয়, বাস্তব অভিজ্ঞতাসম্পন্ন — যারা শিক্ষার্থীদের হাতে-কলমে শেখান।",
     },
     {
       id: 2,
-      title: "Easy to enroll courses",
-      description: "Simple registration process to start learning immediately",
+      title: "সহজে কোর্সে ভর্তি হওয়ার সুবিধা",
+      description: "জটিল প্রক্রিয়া নেই—শুধু প্রয়োজনীয় তথ্য দিন, এবং শেখা শুরু করুন নিজের সুবিধামতো সময়েই।",
     },
     {
       id: 3,
-      title: "Course certificate for particular course",
-      description: "Get recognized certificates upon course completion",
+      title: "প্রতিটি কোর্সের জন্য সনদপত্র",
+      description: "কোর্স সম্পন্ন করার পর স্বীকৃত সনদপত্র প্রদান করা হয়।",
     },
   ];
 
@@ -50,12 +50,12 @@ const ChooseUs = () => {
             viewport={{ once: true }}
           >
             <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">
-              Why Students Choose Us for Gain Their Knowledge
+              Why Students Choose Us to Gain Their Knowledge
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              Helping employees gain skills and providing career development
-              often take a back seat to business priorities but workplace better
-              right now. Seventy percent of workers think that.
+              শিক্ষার্থীদের দক্ষতা বৃদ্ধির সুযোগ অনেক সময় একাডেমিক অগ্রাধিকার বা অন্যান্য বিষয়ে চাপের কারণে উপেক্ষিত হয়। গবেষণায় দেখা গেছে, ৭০% শিক্ষার্থী মনে করেন শেখার ও দক্ষতা উন্নয়নের সুযোগ তাদের কোনো শিক্ষা প্রতিষ্ঠান বেছে নেওয়া এবং সেখানে দীর্ঘ সময় যুক্ত থাকার অন্যতম প্রধান কারণ।
+
+
             </p>
 
             <motion.div
@@ -77,7 +77,7 @@ const ChooseUs = () => {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-gray-900">
+                    <h3 className="text-lg font-bold text-gray-900">
                       {feature.title}
                     </h3>
                     <p className="text-gray-600">{feature.description}</p>
@@ -85,11 +85,6 @@ const ChooseUs = () => {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2] transition-colors">
-              More about us
-              <FaArrowRight className="ml-2 h-4 w-4" />
-            </button> */}
 
             <Link>
               <div className="w-40">
@@ -108,7 +103,7 @@ const ChooseUs = () => {
           {/* <div>
           <img src={image} alt="" className="rounded-bl-3xl rounded-tr-3xl" />
          </div> */}
-          <div className="flex-1 ml-42">
+          <div className="flex-1 md:ml-24 ml-20">
             <motion.img
               src={img1}
               // animate={{y:[50, 100, 50]}}
