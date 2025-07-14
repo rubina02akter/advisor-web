@@ -10,60 +10,32 @@ import {
 } from "lucide-react";
 import React from "react";
 
-// const faqItems = [
-//   {
-//     question: "What are the course durations?",
-//     answer: "Our courses range from 4-week intensive programs to 12-week comprehensive training, depending on the subject. Basic computer courses typically take 4 weeks, while advanced programs like Digital Marketing run for 8-12 weeks.",
-//     icon: <Clock className="text-blue-500 w-5 h-5" />
-//   },
-//   {
-//     question: "Do you provide certificates after completion?",
-//     answer: "Yes, all our courses include a verifiable digital certificate upon successful completion. Our certificates are recognized by industry partners and can be shared on LinkedIn.",
-//     icon: <FileBadge className="text-green-500 w-5 h-5" />
-//   },
-//   {
-//     question: "What payment options do you accept?",
-//     answer: "We accept credit/debit cards, mobile banking, and bank transfers. We also offer installment plans for courses longer than 8 weeks.",
-//     icon: <CreditCard className="text-purple-500 w-5 h-5" />
-//   },
-//   {
-//     question: "Can I get a refund if I'm not satisfied?",
-//     answer: "We offer a 7-day money-back guarantee for all courses. If you're not satisfied with the first week of instruction, you can request a full refund.",
-//     icon: <DollarSign className="text-yellow-500 w-5 h-5" />
-//   },
-//   {
-//     question: "Do you offer job placement assistance?",
-//     answer: "Yes, our career services include resume reviews, interview preparation, and access to our exclusive job board with opportunities from partner companies.",
-//     icon: <Briefcase className="text-red-500 w-5 h-5" />
-//   }
-// ];
-
 const faqItems = [
   {
     question: "কোর্সের মেয়াদ কতদিন?",
     answer:
-      "কম্পিউটার বেসিক কোর্স ৪ সপ্তাহ, আর ডিজিটাল মার্কেটিং এর মতো কোর্স ৮-১২ সপ্তাহের হয়ে থাকে।",
+      "কম্পিউটার বেসিক কোর্স ৩ মাস, আর ডিজিটাল মার্কেটিং, গ্রাফিক্স ডিজাইন এর মতো কোর্স ৪-৬ মাসের হয়ে থাকে।",
     icon: <Clock className="text-blue-500 w-5 h-5" />,
   },
   {
-    question: "সার্টিফিকেট দেওয়া হয় কি?",
+    question: "আমি কি পড়ালেখা ও পরীক্ষার পাশাপাশি এই কোর্স শেষ করতে পারব?",
     answer:
-      "হ্যাঁ, কোর্স শেষের পর ডিজিটাল সার্টিফিকেট দেওয়া হয়, যা লিংকডইন ও চাকরির জন্য ব্যবহার করা যায়।",
+      "হ্যাঁ, পড়ালেখার পাশাপাশি তুমি এই কোর্স শেষ করতে পারবে। পাশাপাশি আমাদের স্টুডেন্ট কেয়ার টিম পরীক্ষার সময় এবং একাডেমিক চাপ সামলাতে তোমাকে রুটিন বানাতে প্লাস গাইডলাইন দিয়ে হেল্প করবে। জাস্ট সোশ্যাল মিডিয়াতে বেশি টাইম নষ্ট করবে না। তাহলেই সম্ভব।",
     icon: <FileBadge className="text-green-500 w-5 h-5" />,
   },
   {
     question: "পেমেন্ট কীভাবে করব?",
     answer:
-      "ডেবিট/ক্রেডিট কার্ড, মোবাইল ব্যাংকিং ও ব্যাংক ট্রান্সফার করা যাবে। দীর্ঘমেয়াদি কোর্সে কিস্তির সুবিধাও আছে।",
+      "ডেবিট/ক্রেডিট কার্ড, মোবাইল ব্যাংকিং ও ব্যাংক ট্রান্সফার করা যাবে। কোর্সে কিস্তির সুবিধাও আছে।",
     icon: <CreditCard className="text-purple-500 w-5 h-5" />,
   },
   {
-    question: "সন্তুষ্ট না হলে কি রিফান্ড পাবো?",
+    question: "কোর্স এর ক্লাস নিয়ে সন্তুষ্ট না হলে কি রিফান্ড পাবো?",
     answer: "হ্যাঁ, প্রথম ৭ দিনের মধ্যে রিফান্ড চাইলেই টাকা ফেরত দেওয়া হয়।",
     icon: <DollarSign className="text-yellow-500 w-5 h-5" />,
   },
   {
-    question: "চাকরির সহায়তা করেন?",
+    question: "কোর্স গুলোতে কি চাকরির সহায়তা করেন?",
     answer:
       "হ্যাঁ, সিভি তৈরি, ইন্টারভিউ প্রস্তুতি ও পার্টনার কোম্পানিতে চাকরির সুযোগ দেওয়া হয়।",
     icon: <Briefcase className="text-red-500 w-5 h-5" />,
@@ -91,7 +63,8 @@ export default function FaqSection() {
           <span className="text-blue-600 font-medium">FAQS</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          তোমার <span className="text-[#22C3F2] ">যত প্রশ্ন</span> আমাদের সম্পর্কে
+          তোমার <span className="text-[#22C3F2] ">যত প্রশ্ন</span> আমাদের
+          সম্পর্কে
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           আমাদের কোর্স ও সার্ভিস নিয়ে সাধারণ কিছু প্রশ্নের উত্তর এখানে দেওয়া
