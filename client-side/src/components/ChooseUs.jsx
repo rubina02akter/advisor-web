@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import img1 from "../../src/assets/images/corporate-workers-brainstorming-together.jpg";
@@ -43,7 +43,7 @@ const ChooseUs = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -58,7 +58,7 @@ const ChooseUs = () => {
 
             </p>
 
-            <motion.div
+            <Motion.div
               variants={container}
               initial="hidden"
               whileInView="show"
@@ -66,7 +66,7 @@ const ChooseUs = () => {
               className="space-y-6 mb-8"
             >
               {features.map((feature) => (
-                <motion.div
+                <Motion.div
                   key={feature.id}
                   variants={item}
                   className="flex items-start"
@@ -82,9 +82,9 @@ const ChooseUs = () => {
                     </h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </div>
-                </motion.div>
+                </Motion.div>
               ))}
-            </motion.div>
+            </Motion.div>
 
             <Link>
               <div className="w-40">
@@ -96,7 +96,7 @@ const ChooseUs = () => {
                 </button>
               </div>
             </Link>
-          </motion.div>
+          </Motion.div>
 
           {/* Right Column - Image Placeholder */}
 
@@ -104,13 +104,13 @@ const ChooseUs = () => {
           <img src={image} alt="" className="rounded-bl-3xl rounded-tr-3xl" />
          </div> */}
           <div className="flex-1 md:ml-24 ml-20">
-            <motion.img
+            <Motion.img
               src={img1}
               // animate={{y:[50, 100, 50]}}
               transition={{ duration: 10, repeat: Infinity }}
               className="relative w-96 border-l-8 border-b-8 border-[#98c5e8] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
             />
-            <motion.img
+            <Motion.img
               src={img2}
               // animate={{x:[100, 150, 100]}}
               transition={{ duration: 5, repeat: Infinity }}

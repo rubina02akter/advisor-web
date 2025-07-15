@@ -1,5 +1,5 @@
 import emailjs from "emailjs-com";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { useRef } from "react";
 import { toast } from "react-hot-toast";
 import {
@@ -40,7 +40,7 @@ const Contact = () => {
     <div className="py-10 px-4 md:px-16 bg-base-100">
       <div className="grid grid-cols-1 md:pl-4 lg:pl-44  md:grid-cols-2 gap-10 items-center">
         {/* LEFT SIDE */}
-        <motion.div
+        <Motion.div
           initial={{ x: -150, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
@@ -69,10 +69,10 @@ const Contact = () => {
             <FaGithub className="hover:text-black transition" />
             <FaInstagram className=" text-red-400  hover:text-pink-600 transition" />
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* RIGHT SIDE */}
-        <motion.form
+        <Motion.form
           ref={form}
           onSubmit={sendEmail}
           initial={{ x: 150, opacity: 0 }}
@@ -132,7 +132,7 @@ const Contact = () => {
               <span className="btn-text">Submit</span>
             </button>
           </div>
-        </motion.form>
+        </Motion.form>
       </div>
       <div className="mt-8">
         <Payment></Payment>
