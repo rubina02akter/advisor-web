@@ -6,7 +6,7 @@ const categories = [
     icon: "https://i.ibb.co/ZR015n7R/office-management.png",
   },
   {
-    name: "Web Design",
+    name: "Web Development",
     icon: "https://i.ibb.co/hFL0kp4x/web.png",
   },
   {
