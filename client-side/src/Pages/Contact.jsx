@@ -10,6 +10,7 @@ import {
 	FaPhoneAlt,
 	FaTwitter,
 } from "react-icons/fa";
+import Payment from "../components/Payment";
 
 const Contact = () => {
   const form = useRef();
@@ -36,8 +37,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="py-10 px-4 md:px-20 bg-base-100">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div className="py-10 px-4 md:px-16 bg-base-100">
+      <div className="grid grid-cols-1 md:pl-4 lg:pl-44  md:grid-cols-2 gap-10 items-center">
         {/* LEFT SIDE */}
         <motion.div
           initial={{ x: -150, opacity: 0 }}
@@ -102,7 +103,7 @@ const Contact = () => {
             />
           </div>
 
-          <div className="form-control">
+          <div className="form-control flex flex-col">
             <label className="label text-black">Your Message: </label>
             <textarea
               name="message"
@@ -132,6 +133,9 @@ const Contact = () => {
             </button>
           </div>
         </motion.form>
+      </div>
+      <div className="mt-8">
+        <Payment></Payment>
       </div>
     </div>
   );

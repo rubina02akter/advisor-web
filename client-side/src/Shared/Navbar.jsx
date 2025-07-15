@@ -94,7 +94,7 @@ const Navbar = () => {
           <span className="bubble bubble-1"></span>
           <span className="bubble bubble-2"></span>
           <span className="bubble bubble-3"></span>
-          <span className="btn-text">Contact US</span>
+          <span className="btn-text">Contact</span>
         </NavLink>
       </li>
       <li key="qnx" className=" ">
