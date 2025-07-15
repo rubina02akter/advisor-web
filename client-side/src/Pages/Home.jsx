@@ -10,7 +10,7 @@ import FaqSection from "../components/FaqSection";
 import Header from "../components/Header";
 import LearningOutcomes from "../components/LearningOutcomes";
 import MarqueeHeading from "../components/MarqueeHeading";
-import Partners from "../components/Partners";
+import Payment from "../components/Payment";
 // import GetUser from "../UserAuth/getUser";
 
 // import CategorySec from "../components/unused/CategorySec";
@@ -30,7 +30,8 @@ export default function Home() {
         <ChooseUs />
         <LearningOutcomes />
         <FaqSection />
-        <Partners></Partners>
+        <Payment/>
+        {/* <Partners></Partners> */}
         {/* <CategorySec></CategorySec> */}
         {/* <Slider /> */}
       </div>

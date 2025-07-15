@@ -1,15 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
+import CourseDetails from "../components/CourseDetails";
 import MainLayout from "../Layouts/MainLayOut";
 import AddCourse from "../Pages/AddCourse";
 import AllCourse from "../Pages/AllCourse";
+import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
-import LogIn from "../UserAuth/LogIn";
-import SignUp from "../UserAuth/SignUp";
-import ViewDetails from "../components/ViewDetails";
-import CourseDetails from "../components/CourseDetails";
 import MyAddedCourses from "../Pages/MyAddedCourses";
 import UpdateCourse from "../Pages/UpdateCourse";
-import ErrorPage from "../Pages/ErrorPage";
+import LogIn from "../UserAuth/LogIn";
+import SignUp from "../UserAuth/SignUp";
 
 
 const router = createBrowserRouter([
@@ -50,10 +49,6 @@ const router = createBrowserRouter([
         path: 'signup',
         element: <SignUp />
       },
-      {
-        path: 'view-details',
-        element: <ViewDetails/>
-      }
     ]
   }
 ])
