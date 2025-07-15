@@ -80,6 +80,23 @@ const Navbar = () => {
           <span className="btn-text">All Courses</span>
         </NavLink>
       </li>
+      <li key="menu" className="">
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            `nav-btn ${
+              isActive
+                ? "text-white bg-gradient-to-br from-[#0322d4] via-[#22C3F2] to-[#22C3F2]"
+                : "text-[#22C3F2] border border-[#22C3F2] bg-transparent hover:bg-[#22C3F2]/20"
+            }`
+          }
+        >
+          <span className="bubble bubble-1"></span>
+          <span className="bubble bubble-2"></span>
+          <span className="bubble bubble-3"></span>
+          <span className="btn-text">Contact US</span>
+        </NavLink>
+      </li>
       <li key="qnx" className=" ">
         {admin === "admin" && (
           <NavLink

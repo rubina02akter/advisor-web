@@ -3,6 +3,7 @@ import CourseDetails from "../components/CourseDetails";
 import MainLayout from "../Layouts/MainLayOut";
 import AddCourse from "../Pages/AddCourse";
 import AllCourse from "../Pages/AllCourse";
+import Contact from "../Pages/Contact";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
 import MyAddedCourses from "../Pages/MyAddedCourses";
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'all-courses',
         element: <AllCourse />
+      },
+      {
+        path: 'contact',
+        element: <Contact/>
       },
       {
         path: '/course/:id',
