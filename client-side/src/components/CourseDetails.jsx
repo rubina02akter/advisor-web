@@ -8,7 +8,7 @@ export default function CourseDetails() {
   console.log(id);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/course/${id}`)
+    fetch(`https://server-side-rho-lemon.vercel.app/course/${id}`)
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, [setCourses]);

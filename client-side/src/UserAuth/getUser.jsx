@@ -8,7 +8,7 @@ export default function GetUser() {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:4000/users/${user.email}`)
+    fetch(`https://server-side-rho-lemon.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserData(data);

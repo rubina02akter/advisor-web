@@ -7,7 +7,7 @@ const app = express();
 
 // With this:
 app.use(cors({
-  origin: 'http://localhost:5173', // or use process.env.FRONTEND_URL
+  origin: ['http://localhost:5173','https://advisor-coaching.web.app'] ,// or use process.env.FRONTEND_URL
   methods: ['GET', 'POST', 'PUT','PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -28,8 +28,8 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("You successfully connected to MongoDB!");
+    // await client.db("admin").command({ ping: 1 });
+    // console.log("You successfully connected to MongoDB!");
 
 
     const database = client.db('AdvisorData');

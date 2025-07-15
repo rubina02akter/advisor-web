@@ -9,7 +9,7 @@ export default function MyAddedCourses() {
   useEffect(() => {
     if (user && user.email) {
       const data = async () => {
-        const url = `http://localhost:4000/my-course?email=${user.email}`;
+        const url = `https://server-side-rho-lemon.vercel.app/my-course?email=${user.email}`;
         const res = await fetch(url);
         const value = await res.json();
         setEmails(value);
@@ -31,7 +31,7 @@ export default function MyAddedCourses() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/my-course/${id}`, {
+        fetch(`https://server-side-rho-lemon.vercel.app/my-course/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

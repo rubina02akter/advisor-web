@@ -5,7 +5,7 @@ export default function AllCourse() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/courses")
+    fetch("https://server-side-rho-lemon.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
