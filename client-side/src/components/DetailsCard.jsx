@@ -81,7 +81,7 @@ export default function DetailsCard({ data }) {
           <ul className="grid grid-cols-1  gap-2 text-normal text-gray-700">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start gap-2">
-                <FaCheckCircle className="text-blue-500 mt-1" /> {feature}
+                <FaCheckCircle className="text-[#22C3F2] mt-1" /> {feature}
               </li>
             ))}
           </ul>
@@ -95,7 +95,7 @@ export default function DetailsCard({ data }) {
           <div className="grid grid-cols-1  gap-4 text-normal text-gray-700">
             {technology.map((tech, index) => (
               <div key={index} className="flex items-center gap-2">
-                <FaFileCode className="text-xl" /> {tech}
+                <FaFileCode className="text-xl text-[#22C3F2]" /> {tech}
               </div>
             ))}
           </div>

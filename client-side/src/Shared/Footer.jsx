@@ -1,4 +1,4 @@
-import { FiHome, FiMail, FiPhone } from "react-icons/fi";
+import { FiHome, FiPhone } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import bg from "../../src/assets/images/still-life-books-versus-technology.jpg"; // Update with your background image
 import footerImg from "../../src/assets/logo/logo-bg.png"; // Update with your logo path
@@ -24,8 +24,8 @@ const Footer = () => {
               className="w-32 md:w-48 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
             />
             {/* <div className="text-lg font-bold">Advisor & SquadXTech</div> */}
-            <p className="text-sm max-w-md mx-auto lg:mx-0">
-              অনলাইন লাইভ স্কিল ডেভেলপমেন্ট প্ল্যাটফর্ম।
+            <p className="text-xl max-w-md mx-auto lg:mx-0">
+              বিশ্বস্ত অনলাইন এবং অফলাইন স্কিল ডেভেলপমেন্ট প্ল্যাটফর্ম।
             </p>
           </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold">Contact</h3>
 
                 <div className="flex items-start gap-2">
-                  <FiHome className=" text-white" />
+                  <FiHome className="mt-2 text-white" />
                   <div>
                     <p>23/16, BIJLI MAHALLA, BLOCK-F</p>
                     {/* <p>Jannatbagh Panir Pump</p> */}
@@ -50,15 +50,9 @@ const Footer = () => {
                   <FiPhone className="text-white" />
                   <p>+8801973430706</p>
                 </div>
-
                 <div className="flex items-center gap-2">
-                  <FiMail className="text-white" />
-                  <a
-                    href="mailto:care@learningbangladesh.con"
-                    className="hover:text-primary transition-colors"
-                  >
-                    advisorsinstitute@gmail.com
-                  </a>
+                  <FiPhone className="text-white" />
+                  <p>+8801973430706</p>
                 </div>
               </div>
             </nav>

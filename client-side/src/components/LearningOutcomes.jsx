@@ -2,10 +2,10 @@ import { motion as Motion } from "framer-motion";
 
 const LearningOutcomes = () => {
   const metrics = [
-    { value: "৯৭%", label: "Completion Rate" },
-    { value: "৮৩%", label: "Career Advancement" },
-    { value: "৪.৯/৫", label: "Satisfaction Score" },
-    { value: "১৫০০+", label: "Students Trained" }
+   { value: "৯৭%", label: "সম্পন্নকরণের হার" },
+  { value: "৮৩%", label: "পেশাগত উন্নয়ন" },
+  { value: "৪.৯/৫", label: "সন্তুষ্টির মানদণ্ড" },
+  { value: "১৫০০+", label: "প্রশিক্ষণপ্রাপ্ত শিক্ষার্থীর সংখ্যা" }
   ];
 
   const outcomes = [
@@ -28,7 +28,7 @@ const LearningOutcomes = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Proven <span className="text-[#22C3F2]">Learning Outcomes</span>
+            নির্ভরযোগ্য <span className="text-[#22C3F2]">শিক্ষাগত অর্জন</span>
           </h2>
           
           <div className="grid grid-cols-2 gap-6">

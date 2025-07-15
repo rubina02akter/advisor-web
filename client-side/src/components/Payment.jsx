@@ -20,7 +20,7 @@ const merchants = [
 const Payment = () => {
   return (
     <div className="text-center py-10 bg-gray-50">
-      <h2 className="text-3xl font-semibold mb-8">Our <span className="text-[#22C3F2]">Payment</span> Merchant</h2>
+      <h2 className="text-3xl font-semibold mb-8">Our <span className="text-[#22C3F2]">Payment</span> Merchants</h2>
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 px-4">
         {merchants.map((merchant, index) => (
           <div

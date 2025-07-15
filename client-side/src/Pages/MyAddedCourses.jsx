@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import AuthContext from "../context/AuthContext";
-import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import AuthContext from "../context/AuthContext";
 
 export default function MyAddedCourses() {
   const { user, emails, setEmails } = useContext(AuthContext);

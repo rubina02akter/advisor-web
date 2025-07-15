@@ -18,7 +18,7 @@ const categories = [
     icon: "https://i.ibb.co/HT8hSybZ/Graphics-design.png",
   },
   {
-    name: "ComTia A+",
+    name: "CompTia A+",
     icon: "https://i.ibb.co/q3Fv3GcY/comtia.png",
   },
 ];
