@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-Motion";
 import {
   Briefcase,
   ChevronDown,
@@ -52,7 +52,7 @@ export default function FaqSection() {
   return (
     <div className="mixed-font py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       {/* Header */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -70,12 +70,12 @@ export default function FaqSection() {
           আমাদের কোর্স ও সার্ভিস নিয়ে সাধারণ কিছু প্রশ্নের উত্তর এখানে দেওয়া
           হলো।
         </p>
-      </motion.div>
+      </Motion.div>
 
       {/* FAQ Items */}
       <div className="space-y-4">
         {faqItems.map((item, index) => (
-          <motion.div
+          <Motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -97,17 +97,17 @@ export default function FaqSection() {
                   {item.question}
                 </h3>
               </div>
-              <motion.div
+              <Motion.div
                 animate={{ rotate: activeIndex === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
                 <ChevronDown className="w-5 h-5 text-gray-500" />
-              </motion.div>
+              </Motion.div>
             </button>
 
             <AnimatePresence>
               {activeIndex === index && (
-                <motion.div
+                <Motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -117,10 +117,10 @@ export default function FaqSection() {
                   <div className="px-6 pb-6 pt-2 text-gray-600">
                     {item.answer}
                   </div>
-                </motion.div>
+                </Motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
     </div>
