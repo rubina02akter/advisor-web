@@ -1,4 +1,4 @@
-import { AnimatePresence, motion as Motion } from "framer-Motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import {
   Briefcase,
   ChevronDown,
