@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const categories = [
   {
@@ -32,7 +32,7 @@ const Category = () => {
 
       <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6 xl:pl-44 xl:pr-44 md:pl-8 md:pr-8">
         {categories.map((category, index) => (
-          <motion.div
+          <Motion.div
             key={index}
             className="md:w-56 md:h-40 w-40 h-36 bg-white text-black rounded-2xl shadow-md flex flex-col items-center justify-center gap-2 px-4 py-4 cursor-pointer border border-transparent"
             whileHover={{
@@ -50,7 +50,7 @@ const Category = () => {
             <h2 className="font-semibold text-center text-xl">
               {category.name}
             </h2>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
     </div>

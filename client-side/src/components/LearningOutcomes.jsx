@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const LearningOutcomes = () => {
   const metrics = [
@@ -21,7 +21,7 @@ const LearningOutcomes = () => {
     <section className="py-16 px-4 bg-gradient-to-br from-[#22C3F2]/10 to-[#0322d4]/10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Metrics Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -42,10 +42,10 @@ const LearningOutcomes = () => {
               </div>
             ))}
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Outcomes List */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -70,7 +70,7 @@ const LearningOutcomes = () => {
               and <strong>Linkedin Profile Optimization</strong> session with course enrollment.
             </p>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );
